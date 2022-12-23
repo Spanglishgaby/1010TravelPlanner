@@ -1,8 +1,18 @@
+import { Container } from '@mui/material'
+import Hero from '../components/home/Hero'
+
 function Home(){
     return (
- <div>
-    hello world
- </div>
+      <>
+      <Container maxWidth='xl'>
+        <Hero />
+        <button>button</button>
+      </Container>
+      {/* <Carousel title='Best Sellers' /> */}
+      <Container maxWidth='xl'>
+        
+      </Container>
+    </>
     )
 }
 
