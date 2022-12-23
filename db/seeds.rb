@@ -36,8 +36,8 @@ puts "trips created"
 
 puts "create activities"
 
-Activity.create(description:"something", price:250, user_id:u2, trip_id:t1)
-Activity.create(description:"something else", price:350, user_id:u1, trip_id:t2)
+Activity.create(description:"something", price:250, user_id:u2.id, trip_id:t1.id)
+Activity.create(description:"something else", price:350, user_id:u1.id, trip_id:t2.id)
 
 puts "activities created"
 
@@ -45,8 +45,8 @@ puts "activities created"
 
 puts "create reviews"
 
-Review.create(review:"leave a review", review_stars: 5.0, user_id:u2)
-Review.create(review:"review our app", review_stars: 4.5, user_id:u1)
+Review.create(review:"leave a review", review_stars: 5.0, user_id:u2.id)
+Review.create(review:"review our app", review_stars: 4.5, user_id:u1.id)
 
 puts "reviews created"
 
