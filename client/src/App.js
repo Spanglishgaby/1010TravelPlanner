@@ -1,8 +1,10 @@
 
 import React, { useEffect} from 'react';
-import Home from "./components/Home"
+import Home from "./components/home/Home"
 import './App.css';
 import { Switch, Route} from 'react-router-dom';
+import SignIn from './components/SignIn/SignIn';
+import SignUp from './components/SignUp/SignUp';
 
 
 function App() {
@@ -35,8 +37,11 @@ function App() {
         <Route exact path = '/'>
           <Home/>
         </Route>
-        <Route exact path = '/main'>
-          <h1>gfdgdgf</h1>
+        <Route exact path = '/signin'>
+          <SignIn/>
+        </Route>
+        <Route exact path = '/signup'>
+          <SignUp/>
         </Route>
       </Switch>
   );
