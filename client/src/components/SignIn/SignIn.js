@@ -3,16 +3,18 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-// import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
+
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Footer from '../home/Footer';
+import NavBar from '../NavBar/NavBar';
+
 const theme = createTheme();
+
 const SignIn = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -20,6 +22,7 @@ const SignIn = () => {
       };
   return (
     <ThemeProvider theme={theme}>
+      <NavBar/>
     <Grid container component="main" sx={{ height: '100vh' }}>
       <CssBaseline />
       <Grid
@@ -28,7 +31,7 @@ const SignIn = () => {
         sm={4}
         md={7}
         sx={{
-          backgroundImage: 'url(https://source.unsplash.com/random/thailand)',
+          backgroundImage: 'url(https://source.unsplash.com/random/landscape)',
           backgroundRepeat: 'no-repeat',
           backgroundColor: (t) =>
             t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
@@ -102,7 +105,9 @@ const SignIn = () => {
         </Box>
       </Grid>
     </Grid>
+    <Footer/>
   </ThemeProvider>
+ 
   )
 }
 

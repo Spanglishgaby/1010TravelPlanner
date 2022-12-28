@@ -10,6 +10,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Footer from '../home/Footer';
 const theme = createTheme();
 
 const SignUp = ({setUsers}) => {
@@ -150,6 +151,7 @@ const SignUp = ({setUsers}) => {
       </Box>
       {/* <Copyright sx={{ mt: 5 }} /> */}
     </Container>
+    <Footer/>
   </ThemeProvider>
   )
 }
