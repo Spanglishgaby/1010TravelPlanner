@@ -190,16 +190,6 @@ export default Planner
 
 
 
-
-// import { mainListItems, secondaryListItems } from './listItems';
-// import Chart from './Chart';
-// import Deposits from './Deposits';
-// import Orders from './Orders';
-
-
-
-
-
 // function DashboardContent() {
  
 

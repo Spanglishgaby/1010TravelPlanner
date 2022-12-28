@@ -32,7 +32,7 @@ const Footer = () => {
     >
       <Container maxWidth="sm">
         <Typography variant="body1">
-          D
+        Copyright ©  Gabriela, Isaac and Pablo
         </Typography>
       </Container>
     </Box>

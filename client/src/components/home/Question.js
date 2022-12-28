@@ -51,7 +51,7 @@ function Question() {
             <Typography variant="subtitle1" sx={{ my: 3 }}>
                 We are here to help. Get in touch!
             </Typography>
-            <LuggageIcon fontSize='large'/>
+            <LuggageIcon fontsize='large'/>
        
     </Container>
     </Box>

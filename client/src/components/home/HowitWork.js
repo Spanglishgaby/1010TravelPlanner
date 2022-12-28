@@ -16,7 +16,7 @@ const item = {
   };
   
   const number = {
-    fontSize: 24,
+    fontsize: 24,
     fontFamily: 'default',
     color: 'secondary.main',
     fontWeight: 'medium',

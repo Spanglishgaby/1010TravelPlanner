@@ -9,6 +9,15 @@ import PeopleIcon from '@mui/icons-material/People';
 import HomeIcon from '@mui/icons-material/Home';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 
+
+// const List = ({handleOpenModel}) => {
+//   return (
+//     <div>List</div>
+//   )
+// }
+
+// export default List
+
 export const mainListItems = (
   <React.Fragment>
      <ListItemButton href="/">
@@ -25,14 +34,16 @@ export const mainListItems = (
       <ListItemText primary="Users" />
     </ListItemButton>
 
-    <ListItemButton >
+    <ListItemButton href='/planner'>
       <ListItemIcon>
         <TableViewIcon />
       </ListItemIcon>
       <ListItemText primary="Travel Planner" />
     </ListItemButton>
 
-    <ListItemButton>
+    <ListItemButton 
+    // onClick={handleOpenModel}
+    >
       <ListItemIcon>
         <LocalAirportIcon />
       </ListItemIcon>
