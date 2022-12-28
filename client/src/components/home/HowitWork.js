@@ -61,8 +61,10 @@ const HowitWork = () => {
               <Box sx={item}>
                 <Box sx={number}>1.</Box>
                 <AppRegistrationIcon fontsize = "large"/>
+                <br></br>
+                <br></br>
                 <Typography variant="h5" align="center">
-                  Appointment every Wednesday 9am.
+                  Register as new user
                 </Typography>
               </Box>
             </Grid>
@@ -70,9 +72,10 @@ const HowitWork = () => {
               <Box sx={item}>
                 <Box sx={number}>2.</Box>
                 <FlightIcon fontsize = "large"/>
+                <br></br>
+                <br></br>
                 <Typography variant="h5" align="center">
-                  First come, first served. Our offers are in limited quantities, so
-                  be quick.
+                  Create a New Trip
                 </Typography>
               </Box>
             </Grid>
@@ -80,9 +83,10 @@ const HowitWork = () => {
               <Box sx={item}>
                 <Box sx={number}>3.</Box>
                 <PersonAddIcon fontsize = "large"/>
+                <br></br>
+                <br></br>
                 <Typography variant="h5" align="center">
-                  {'New offers every week. New experiences, new surprises. '}
-                  {'Your Sundays will no longer be alike.'}
+                Add you friends and family to your trip
                 </Typography>
               </Box>
             </Grid>

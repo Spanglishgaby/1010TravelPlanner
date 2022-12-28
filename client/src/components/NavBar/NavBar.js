@@ -20,20 +20,20 @@ const NavBar = () => {
             </MobileIcon>
             <NavMenu>
               <NavItem>
-                <NavLinks to='home'>Home</NavLinks>
+                <NavLinks to='/'>Home</NavLinks>
+              </NavItem>
+              <NavItem>
+                <NavLinks to='/signin'>Log In</NavLinks>
+              </NavItem>
+              <NavItem>
+                <NavLinks to='/faq'>FAQ</NavLinks>
               </NavItem>
               {/* <NavItem>
-                <NavLinks to='signin'>SignIn</NavLinks>
-              </NavItem>
-              <NavItem>
-                <NavLinks to='signin'>SignIn</NavLinks>
-              </NavItem>
-              <NavItem>
                 <NavLinks to='signin'>SignIn</NavLinks>
               </NavItem> */}
             </NavMenu>
             <NavBtn>
-            <NavBtnLinks to='/signin'>Sign In</NavBtnLinks>
+            <NavBtnLinks to='/signup'>Sign Up</NavBtnLinks>
             </NavBtn>
         </NavBarContainer>
     </Nav>

@@ -22,7 +22,7 @@ const Header = () => {
         alt="increase priority"
     />
     <Typography color="inherit" align="center" variant="h2" marked="center">
-        PLAN YOUR FAMILY TRIP
+        TIME TO TRAVEL
     </Typography>
     <Typography
       color="inherit"
@@ -30,7 +30,7 @@ const Header = () => {
       variant="h5"
       sx={{ mb: 4, mt: { sx: 4, sm: 10 } }}
     >
-      Enjoy secret offers up to -70% off the best luxury hotels every Sunday.
+      Plan your trip without the chaos
     </Typography>
     
     <Button
