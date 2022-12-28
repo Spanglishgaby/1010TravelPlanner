@@ -27,8 +27,8 @@ puts "user created"
 
 puts "create trips"
 
-t1 = Trip.create(title:"Dominican Republic", description:"something something lots of mango trees", date:3/15/2023, total_budget:10000)
-t2 = Trip.create(title:"Peru", description:"something something cheap partying", date:2/15/2023, total_budget:6000)
+t1 = Trip.create(title:"Dominican Republic", description:"something something lots of mango trees", date: "3/15/2023" , total_budget:10000)
+t2 = Trip.create(title:"Peru", description:"something something cheap partying", date: "2/15/2023", total_budget:6000)
 
 puts "trips created"
 

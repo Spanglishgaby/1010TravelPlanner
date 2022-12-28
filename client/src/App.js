@@ -6,6 +6,7 @@ import { Switch, Route} from 'react-router-dom';
 import SignIn from './components/SignIn/SignIn';
 import SignUp from './components/SignUp/SignUp';
 import Reviews from './components/reviews/Reviews';
+import Planner from './components/planner/Planner';
 
 
 function App() {
@@ -49,8 +50,8 @@ function App() {
         <Route exact path = '/signup'>
           <SignUp setUsers={setUsers}/>
         </Route>
-        <Route exact path = '/trips'>
-          <SignIn/>
+        <Route exact path = '/planner'>
+          <Planner/>
         </Route>
         <Route exact path = '/activities'>
           <SignIn/>
