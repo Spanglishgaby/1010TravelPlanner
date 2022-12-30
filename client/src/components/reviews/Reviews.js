@@ -6,6 +6,15 @@ import Typography from '@mui/material/Typography';
 const Reviews = () => {
     const [value, setValue] = useState('');
     console.log(value)
+    // const [reviews, setReviews] = useState([])
+
+    // useEffect(() => {
+    //   fetch('/reviews')
+    //     .then(r => r.json())
+    //     .then(data =>
+    //       setReviews(data) 
+    //       )
+    // }, [])
   return (
     <Box
       sx={{

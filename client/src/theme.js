@@ -16,48 +16,56 @@ export const theme = createTheme({
       primary: brown[900],
     },
     background: {
-      default: '#eee6d2',
+      default: '#f8f4ef',
       paper: '#f8f4ef',
     },
   },
   typography: {
-    fontFamily: '"Montserrat", sans-serif',
+    fontFamily: '"DM Sans", sans-serif',
     h1: {
-      fontSize: '4em',
+      fontWeight: 700,
+      fontSize: '5em',
       '@media (max-width:600px)': {
         fontSize: '3em',
       },
-      fontFamily: '"Libre Caslon Text", serif',
+      fontFamily: '"DM Sans", sans-serif',
     },
     h2: {
-      fontSize: '3.5em',
+      fontWeight: 700,
+      fontSize: '3.75em',
       '@media (max-width:600px)': {
         fontSize: '2.5em',
       },
-      fontFamily: '"Libre Caslon Text", serif',
+      fontFamily: '"DM Sans", sans-serif',
     },
     h3: {
+      fontWeight: 700,
       fontSize: '3em',
       '@media (max-width:600px)': {
         fontSize: '2em',
       },
-      fontFamily: '"Libre Caslon Text", serif',
+      fontFamily: '"DM Sans", sans-serif',
     },
     h4: {
-      fontFamily: '"Libre Caslon Text", serif',
+      fontWeight: 700,
+      fontFamily: '"DM Sans", sans-serif',
     },
     h5: {
-      fontFamily: '"Libre Caslon Text", serif',
+      fontWeight: 700,
+      fontFamily: '"DM Sans", sans-serif',
     },
     h6: {
-      fontSize: '1em',
-      fontFamily: '"Libre Caslon Text", serif',
+      fontWeight: 700,
+      fontSize: '1.25em',
+      fontFamily: '"DM Sans", sans-serif',
     },
     subtitle1: {
+      fontWeight: 600,
       fontSize: '1.25em',
       color: grey[700],
     },
     subtitle2: {
+      fontWeight: 400,
       fontSize: '.9em',
       color: grey[700],
     },

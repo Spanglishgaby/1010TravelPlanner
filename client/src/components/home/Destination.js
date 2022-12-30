@@ -107,7 +107,7 @@ export default function ProductCategories() {
       <Typography variant="h4" marked="center" align="center" component="h2">
         TOP WORLD DESTINATIONS
       </Typography>
-      <Box sx={{ mt: 8, display: 'flex', flexWrap: 'wrap' }}>
+      <Box sx={{ mt: 4, display: 'flex', flexWrap: 'wrap' }}>
         {images.map((image) => (
           <ImageIconButton
             key={image.title}

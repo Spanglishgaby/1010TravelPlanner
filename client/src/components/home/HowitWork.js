@@ -27,7 +27,8 @@ const HowitWork = () => {
   return (
     <Box
         component="section"
-        sx={{ display: 'flex', 
+        sx={{
+           display: 'flex', 
         bgcolor: 'white', 
         overflow: 'hidden' 
         }}
