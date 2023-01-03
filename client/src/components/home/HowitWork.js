@@ -76,7 +76,7 @@ const HowitWork = () => {
                 <br></br>
                 <br></br>
                 <Typography variant="h5" align="center">
-                  Create a New Trip
+                  Create New Trip
                 </Typography>
               </Box>
             </Grid>
@@ -87,7 +87,7 @@ const HowitWork = () => {
                 <br></br>
                 <br></br>
                 <Typography variant="h5" align="center">
-                Add you friends and family to your trip
+                Add friends and family to your trip
                 </Typography>
               </Box>
             </Grid>
