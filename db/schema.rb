@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_28_152902) do
+ActiveRecord::Schema.define(version: 2023_01_03_194117) do
 
   create_table "activities", force: :cascade do |t|
     t.integer "trip_id", null: false
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2022_12_28_152902) do
     t.string "last_name"
     t.string "email"
     t.integer "phone_number"
-    t.string "password"
+    t.string "password_digest" # line 1 allows database to store hasesh 
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
