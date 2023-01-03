@@ -1,5 +1,5 @@
-// import React, {useState} from 'react';
-// import {useHistory} from 'react-router-dom'
+import React, {useState} from 'react';
+import {useHistory} from 'react-router-dom'
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -15,6 +15,41 @@ import Footer from '../home/Footer';
 import NavBar from '../NavBar/NavBar';
 
 const theme = createTheme();
+
+const SignIn = () => {
+  const [formData, setFormData] = useState ({
+    name:'',
+    email:'',
+    password:''
+  }) //need form
+  const [errors, setErrors] = useState([])
+  const history = useHistory()
+  const {name, email, password} = formData
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const user = {
+          name,
+          password
+        }
+        fetch('/signin', {
+          method: 'POST',
+          headers:{'Content-Type': 'application/json'},
+          body:JSON.stringify(user)
+        })
+        .then(res => {
+          if(res.ok){
+            res.json().then(user => {
+              history.push(`/users/${user.id}`)
+            })
+          }else {
+            res.json().then(json => setErrors(Object.entries(json.errors)))
+          }
+        })
+      };
+      const handleChange = (event) => {
+        const {name, value} = event.target
+        setFormData({...formData, [name]: value})
+      }
 
 
   return (
