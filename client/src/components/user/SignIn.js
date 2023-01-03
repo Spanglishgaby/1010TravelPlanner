@@ -52,16 +52,6 @@ const SignIn = () => {
       }
 
 
-
-// const SignIn = () => {
-//     const handleSubmit = (event) => {
-//         event.preventDefault();
-//       };
-
-// const signIn = {
-
-// }
-
   return (
     <ThemeProvider theme={theme}>
       <NavBar/>
@@ -105,6 +95,8 @@ const SignIn = () => {
               id="email"
               label="Email Address"
               name="email"
+              value={email}
+              onChange={handleChange}
               autoComplete="email"
               autoFocus
             />
@@ -113,6 +105,8 @@ const SignIn = () => {
               required
               fullWidth
               name="password"
+              value={password}
+              onChange={handleChange}
               label="Password"
               type="password"
               id="password"
@@ -147,6 +141,7 @@ const SignIn = () => {
         </Box>
       </Grid>
     </Grid>
+    {errors?errors.map(e => <div>{e[0]+': ' + e[1]}</div>):null} 
     <Footer/>
   </ThemeProvider>
  
