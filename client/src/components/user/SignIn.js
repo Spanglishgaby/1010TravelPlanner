@@ -1,4 +1,5 @@
-import * as React from 'react';
+// import React, {useState} from 'react';
+// import {useHistory} from 'react-router-dom'
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -15,14 +16,6 @@ import NavBar from '../NavBar/NavBar';
 
 const theme = createTheme();
 
-const SignIn = () => {
-    const handleSubmit = (event) => {
-        event.preventDefault();
-      };
-
-// const signIn = {
-
-// }
 
   return (
     <ThemeProvider theme={theme}>
@@ -67,6 +60,8 @@ const SignIn = () => {
               id="email"
               label="Email Address"
               name="email"
+              value={email}
+              onChange={handleChange}
               autoComplete="email"
               autoFocus
             />
@@ -75,6 +70,8 @@ const SignIn = () => {
               required
               fullWidth
               name="password"
+              value={password}
+              onChange={handleChange}
               label="Password"
               type="password"
               id="password"
@@ -109,6 +106,7 @@ const SignIn = () => {
         </Box>
       </Grid>
     </Grid>
+    {errors?errors.map(e => <div>{e[0]+': ' + e[1]}</div>):null} 
     <Footer/>
   </ThemeProvider>
  

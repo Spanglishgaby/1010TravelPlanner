@@ -6,6 +6,7 @@ class CreateUsers < ActiveRecord::Migration[6.1]
       t.string :email
       t.integer :phone_number
       t.string :password
+      # need password_digest insted of password for encryption 
 
       t.timestamps
     end
