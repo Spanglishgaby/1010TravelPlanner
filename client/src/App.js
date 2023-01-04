@@ -10,6 +10,8 @@ import SignIn from './components/user/SignIn';
 import SignUp from './components/user/SignUp';
 import Home from "./components/home/Home"
 
+import Faq from './components/FaqView'
+
 
 import TripDashboard from './components/planner/TripDashboard'
 import Planner from './components/planner/Planner';
@@ -141,7 +143,17 @@ const deleteTrips = (deleteTrip) => {
                   deleteTrips={deleteTrips}
                   />
           </Route>
-          
+
+          <Route exact path = '/faq'>
+            <Faq/>
+          </Route>
+          {/* <Route exact path = '/reviews'>
+            <Reviews reviews={reviews}/>
+          </Route> */}
+          {/* <Route exact path = '/activities'>
+            <Reviews activities={activities}/>
+          </Route> */}
+
         </Switch>
     </ThemeProvider>
   );
