@@ -16,7 +16,7 @@ import NavBar from '../NavBar/NavBar';
 
 const theme = createTheme();
 
-const SignIn = () => {
+const SignIn = ({updateUser}) => {
   const [formData, setFormData] = useState ({
     name:'',
     email:'',
@@ -31,6 +31,7 @@ const SignIn = () => {
           name,
           password
         }
+        // Logs in users 
         fetch('/signin', {
           method: 'POST',
           headers:{'Content-Type': 'application/json'},
@@ -38,11 +39,13 @@ const SignIn = () => {
         })
         .then(res => {
           if(res.ok){
-            res.json().then(user => {
+            res.json()
+            .then(user => {
+              updateUser(user)
               history.push('/planner') ///`/planner/${user.id}`
             })
           }else {
-            res.json().then(json => setErrors(Object.entries(json.errors)))
+            res.json().then(json => setErrors(json.errors)) //(Object.entries(json.errors)))
           }
         })
       };
@@ -51,7 +54,7 @@ const SignIn = () => {
         setFormData({...formData, [name]: value})
       }
 
-
+      // Sign in form plus styling
   return (
     <ThemeProvider theme={theme}>
       <NavBar/>

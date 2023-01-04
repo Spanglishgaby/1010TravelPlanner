@@ -3,12 +3,16 @@ class UsersController < ApplicationController
 rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 rescue_from ActiveRecord::RecordInvalid, with: :render_invalid_response
 
+# skip_before_action 
+skip_before_action :authorized_user, only: [:create]
+
     def index
         render json: User.all, status: :ok
     end
 
     def show
-        find_user = find_params_id
+        # find_user = find_params_id
+        find_user = User.find(session[:user_id])
         render json: find_user, status: :ok
     end
 
