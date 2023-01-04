@@ -168,7 +168,7 @@ const Planner = ({trips,createTrips,UpdatingTrips,deleteTrips,search,setSearch})
                   variant='h6'
                   className='letter-spacing'
                   sx={{ display: { xs: 'none', sm: 'block' } }}>
-                    Isaac Jacquez
+                    Isaac 
                 </Typography>
             </Toolbar>
         </AppBar>

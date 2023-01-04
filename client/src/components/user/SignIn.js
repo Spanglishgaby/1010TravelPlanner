@@ -39,7 +39,7 @@ const SignIn = () => {
         .then(res => {
           if(res.ok){
             res.json().then(user => {
-              history.push(`/users/${user.id}`)
+              history.push('/planner') ///`/planner/${user.id}`
             })
           }else {
             res.json().then(json => setErrors(Object.entries(json.errors)))
