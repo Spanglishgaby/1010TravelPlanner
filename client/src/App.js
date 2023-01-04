@@ -54,7 +54,6 @@ function App() {
     fetch("/trips")
       .then((res) => res.json())
       .then((data) =>
-        //console.log(data)
         setTrips(data)
       );
   };
@@ -117,15 +116,17 @@ function App() {
   return (
     <ThemeProvider theme={appliedTheme}>
       <CssBaseline />
-      {!user ? (
-        <SignIn error={"Please Login"} updateUser={updateUser} /> // If user not logged in send to logging page else render all
-      ) : (
+      {/* {!user ? <SignIn error={"Please Login"} updateUser={updateUser}/> : // If user not logged in send to logging page else render all */}
         <Switch>
           <Route exact path="/">
             <Home />
           </Route>
           <Route exact path="/signin">
-            <SignIn updateUser={updateUser} />
+            <SignIn
+            error={"Please Login"}
+            user={user}
+            updateUser={updateUser} 
+            />
           </Route>
           <Route exact path="/signup">
             <SignUp users={users} setUsers={setUsers} />
@@ -134,6 +135,8 @@ function App() {
             <Route/> */}
           <Route exact path="/planner">
             <Planner
+              user={user}
+              updateUser={updateUser} 
               trips={trips}
               updateTrips={updateTrips}
               createTrips={createTrips}
@@ -158,8 +161,9 @@ function App() {
           {/* <Route exact path = '/activities'>
               <Reviews activities={activities}/>
             </Route> */}
+          
         </Switch>
-      )}
+      {/* } */}
     </ThemeProvider>
   );
 }

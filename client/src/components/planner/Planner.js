@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {useHistory} from 'react-router-dom'
 import TripCard from "./TripCard";
 import TripModal from "./TripModal";
 
@@ -121,20 +122,19 @@ const Drawer = styled(MuiDrawer, {
   },
 }));
 
-const handleLogOut = () => {
-  fetch("/user", {
-    method: "DELETE",
-  });
-};
+
 
 const mdTheme = createTheme();
 
 const Planner = ({
+
+  user,
   trips,
   createTrips,
   UpdatingTrips,
   deleteTrips
 }) => {
+
   //handle edit Trip modal
   const [openModal, setOpenModal] = useState(false);
   const handleOpenModel = () => setOpenModal(true);
@@ -145,7 +145,21 @@ const Planner = ({
     setOpen(!open);
   };
 
-  console.log(trips)
+  const history = useHistory()
+
+  const handleLogOut = () => {
+    fetch(`/logout/${user.id}`, {
+      method: "DELETE",
+    })
+    .then(res => {
+      if (res.ok) {
+        history.push("/")
+        //redirect user to home
+      }
+    })
+  };
+ 
+
   return (
     <ThemeProvider theme={mdTheme}>
       <Box sx={{ display: "flex" }}>

@@ -24,11 +24,12 @@ const SignIn = ({updateUser}) => {
   }) //need form
   const [errors, setErrors] = useState([])
   const history = useHistory()
-  const {name, email, password} = formData
-    const handleSubmit = (event) => {
+  const {email, password} = formData
+
+  const handleSubmit = (event) => {
         event.preventDefault();
         const user = {
-          name,
+          email,
           password
         }
         // Logs in users 
@@ -42,7 +43,7 @@ const SignIn = ({updateUser}) => {
             res.json()
             .then(user => {
               updateUser(user)
-              history.push('/planner') ///`/planner/${user.id}`
+              history.push('/planner') //`/planner/${user.id}`
             })
           }else {
             res.json().then(json => setErrors(json.errors)) //(Object.entries(json.errors)))
