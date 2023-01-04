@@ -8,13 +8,13 @@ import CssBaseline from '@mui/material/CssBaseline'
 
 import SignIn from './components/user/SignIn';
 import SignUp from './components/user/SignUp';
-// import Reviews from './components/reviews/Reviews';
-import Planner from './components/planner/Planner';
 import Home from "./components/home/Home"
-import UsersContainer from './components/user/UsersContainer';
 
 import Faq from './components/FaqView'
 
+
+import TripDashboard from './components/planner/TripDashboard'
+import Planner from './components/planner/Planner';
 
 
 function App() {
@@ -43,7 +43,7 @@ const getTrips = () => {
     fetch('/trips')
       .then((res) => res.json())
       .then((data) => 
-      // console.log(data)
+       //console.log(data)
       setTrips(data)
       )
 }
@@ -81,7 +81,7 @@ const updateTrips = (trip) => {
   })
 }
 
-const UpdatingTrips = (changedTrip) => {
+const updatingTrips = (changedTrip) => {
   updateTrips(changedTrip)
   const updatedTrips = trips.map((trip) =>
     trip.id === changedTrip.id ? changedTrip : trip
@@ -99,31 +99,51 @@ const deleteTrips = (deleteTrip) => {
   setTrips(updatedTrips)
 }
 
-//  //handle search
-//  const [search, setSearch] = useState('')
-//  const filterTrips = trips.filter((trip) => {
-//    return trip.title.toLowerCase().includes(search.toLowerCase())
-//  })
+ //handle search
+ const [search, setSearch] = useState('')
+ const filterTrips = trips.filter((trip) => {
+   return trip.title.toLowerCase().includes(search.toLowerCase())
+ })
 
   return (
     <ThemeProvider theme={appliedTheme}>
         <CssBaseline />
         <Switch>
-          <Route exact path = '/'>
+        <Route exact path = '/'>
             <Home/>
           </Route>
           <Route exact path = '/signin'>
             <SignIn/>
           </Route>
           <Route exact path = '/signup'>
-            <SignUp setUsers={setUsers}/>
+            <SignUp users ={users} setUsers={setUsers}/>
           </Route>
-          <Route exact path = '/planner'>
-            <Planner/>
+          {/* <Route exact path = '/users'/>
+             
+          <Route/> */}
+          <Route exact path='/planner' >
+            <Planner
+                    trips={filterTrips}
+                    search={search}
+                    setSearch={setSearch}
+                    // getTrips={getTrips}
+                    updateTrips={updateTrips}
+                    createTrips={createTrips}
+                    updatingTrips={updatingTrips}
+                    deleteTrips={deleteTrips}
+                  />
           </Route>
-          <Route exact path = '/users'>
-            <UsersContainer users={users} setUsers={setUsers}/>
+          <Route exact path='/planner/:id'>
+            <TripDashboard
+                  trips={trips}
+                  // search={search}
+                  // setSearch={setSearch}
+                  //getTrips={getTrips}
+                  updatingTrips={updatingTrips}
+                  deleteTrips={deleteTrips}
+                  />
           </Route>
+
           <Route exact path = '/faq'>
             <Faq/>
           </Route>
