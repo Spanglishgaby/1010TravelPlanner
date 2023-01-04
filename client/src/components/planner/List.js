@@ -4,7 +4,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import ListSubheader from '@mui/material/ListSubheader';
 import TableViewIcon from '@mui/icons-material/TableView';
-import LocalAirportIcon from '@mui/icons-material/LocalAirport';
+//import LocalAirportIcon from '@mui/icons-material/LocalAirport';
 import PeopleIcon from '@mui/icons-material/People';
 import HomeIcon from '@mui/icons-material/Home';
 import AssignmentIcon from '@mui/icons-material/Assignment';
@@ -41,14 +41,7 @@ export const mainListItems = (
       <ListItemText primary="Travel Planner" />
     </ListItemButton>
 
-    <ListItemButton 
-    // onClick={handleOpenModel}
-    >
-      <ListItemIcon>
-        <LocalAirportIcon />
-      </ListItemIcon>
-      <ListItemText primary="Create a New Trip" />
-    </ListItemButton>
+  
   </React.Fragment>
 );
 

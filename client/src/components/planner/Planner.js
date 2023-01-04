@@ -258,7 +258,7 @@ const Planner = ({trips,createTrips,UpdatingTrips,deleteTrips,search,setSearch})
                                     })}
                                 
                                 <TripModal
-                                trips={trips}
+                                trip={trips}
                                 openModal={openModal}
                                 handleCloseModel={handleCloseModel}
                                 createTrips={createTrips}
