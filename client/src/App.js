@@ -13,6 +13,8 @@ import Planner from './components/planner/Planner';
 import Home from "./components/home/Home"
 import UsersContainer from './components/user/UsersContainer';
 
+import Faq from './components/FaqView'
+
 
 
 function App() {
@@ -121,6 +123,9 @@ const deleteTrips = (deleteTrip) => {
           </Route>
           <Route exact path = '/users'>
             <UsersContainer users={users} setUsers={setUsers}/>
+          </Route>
+          <Route exact path = '/faq'>
+            <Faq/>
           </Route>
           {/* <Route exact path = '/reviews'>
             <Reviews reviews={reviews}/>
