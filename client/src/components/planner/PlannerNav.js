@@ -8,12 +8,11 @@ import { styled  } from '@mui/material/styles';
 import { Typography, IconButton,Toolbar,Divider,List,Box,Grid, Container,CssBaseline} from '@mui/material'
 import Avatar from '@mui/material/Avatar'
 import '../../components/css/index.css'
-import {Switch, useHistory,Route, Link } from 'react-router-dom'
+import {useHistory } from 'react-router-dom'
 import Button from '@mui/material/Button';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import ListSubheader from '@mui/material/ListSubheader';
 import TableViewIcon from '@mui/icons-material/TableView';
 //import LocalAirportIcon from '@mui/icons-material/LocalAirport';
 import PeopleIcon from '@mui/icons-material/People';
@@ -166,7 +165,7 @@ const PlannerNav = ({user, trips,setTrips}) => {
                 <ListItemText primary="Current Trips" />
               </ListItemButton>
 
-              <ListItemButton href='/newtrip'>
+              <ListItemButton href='/create'>
                 <ListItemIcon>
                   <TableViewIcon />
                 </ListItemIcon>

@@ -14,6 +14,8 @@ import Faq from "./components/FaqView";
 //import Planner from "./components/planner/Planner";
 import PlannerNav from "./components/planner/PlannerNav";
 
+import CreateTrip from "./components/planner/CreateTrip";
+
 function App() {
   const appliedTheme = createTheme(theme);
   // const [activities, setActivities] = useState([])
@@ -24,7 +26,6 @@ function App() {
   // }, [])
 
   const [user, setUser] = useState(null); // set to null in case user comes back
-  const [errors, setErrors] = useState(false)
   const [users, setUsers] = useState([]);
   const [trips, setTrips] = useState([]);
 
@@ -61,22 +62,7 @@ function App() {
   //       )
   // }
   console.log(trips)
-  const addTrips = (trip) => setTrips(current => [...current,trip])
-
-  const updateTrip = (updatedTrip) => setTrips(current => {
-    return current.map(trip => {
-     if(trip.id === updatedTrip.id){
-       return updatedTrip
-     } else {
-       return trip
-     }
-    })
-  })
-
-  const deleteTrip = (id) => setTrips(current => current.filter(p => p.id !== id)) 
-
-  if(errors) return <h1>{errors}</h1>
-
+ 
   // const createTrips = (trip) => {
   //   fetch("/trips", {
   //     method: "POST",
@@ -156,7 +142,14 @@ function App() {
               updateUser={updateUser} 
               trips={trips}
               setTrips={setTrips}
-          
+            />
+          </Route>
+          <Route exact path="/create">
+          <CreateTrip
+              user={user}
+              updateUser={updateUser} 
+              trips={trips}
+              setTrips={setTrips}
             />
           </Route>
           <Route exact path="/faq">

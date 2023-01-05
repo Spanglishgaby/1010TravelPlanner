@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import TripCard from "./TripCard";
-import {
-  Typography,
-  Grid,
-  Container,
-} from "@mui/material";
+// import {
+//   Typography,
+//   Grid,
+//   Container,
+// } from "@mui/material";
 
 import "../../components/css/index.css";
-
+import { Container, Grid } from 'semantic-ui-react'
 
 
 
@@ -17,22 +17,36 @@ const CurrentTrips = ({
   setTrips
 }) => {
 
-  const [filtered, setFiltered] = useState([])
+  // const [filtered, setFiltered] = useState([])
 
-  // console.log(customers)
-   let handleDelete = (id) => {
-       setFiltered(filtered.filter(trip => trip.id !== id))
-   }
-   let handleUpdate = (index, newData) => {
-     let tempArray = filtered
-     tempArray[index]= newData
-     tripArray = tempArray
-     setFiltered([...tempArray])
-     setTrips(tempArray)
+  // // console.log(customers)
+  //  let handleDelete = (id) => {
+  //      setFiltered(filtered.filter(trip => trip.id !== id)) // filtered...could this line be filtering nothong?
+  //  }
+  const handleDelete = (id) => setTrips(current => current.filter(p => p.id !== id)) 
+  const handleUpdate = (updatedTrip) => setTrips(current => {
+    return current.map(trip => {
+     if(trip.id === updatedTrip.id){
+       return updatedTrip
+     } else {
+       return trip
+     }
+    })
+  })
+  //  let handleUpdate = (index, newData) => {
+  //    let tempArray = filtered
+  //    tempArray[index]= newData
+  //    tripArray = tempArray
+  //    setFiltered([...tempArray])
+  //    setTrips(tempArray)
      
 
-   }
-  let tripArray = filtered.map((trip,i) => <TripCard key={trip.id} index={i} handleUpdate={handleUpdate} handleDelete={handleDelete} trip={trip} trips={trips} />)
+   //}
+  let tripArray = trips.map((trip) => <TripCard key={trip.id} 
+                                                handleUpdate={handleUpdate} 
+                                                handleDelete={handleDelete} 
+                                                trip={trip} 
+                                                setTrips={setTrips}/>)
   
   useEffect(() => {
     getTrips()
@@ -42,25 +56,24 @@ const CurrentTrips = ({
       fetch('/trips')
         .then((res) => res.json())
         .then((data) => 
-        // console.log(data)
-        setTrips(data)
+        //console.log(data)
+       setTrips(data)
         )
   }
-  
+  console.log(tripArray)
   return (
-    <Container maxWidth="xl" sx={{ flexGrow: 1, p: 3 }}>
-      <Grid item xs={12} 
-        container
-        alignContent="center"
-        justifyContent="space-between">
-            <Typography variant="h2" gutterBottom>
-              Your Trips
-            </Typography>
-            <Grid container spacing={2} >
-              {tripArray}
-            </Grid>
-      </Grid>
+    <div >
+    <Container style={{ marginTop: "50px" }}>
+        <h1 >Last Trips :</h1>
+        <Grid columns={3} divided>
+            <Grid.Row>
+              
+                {tripArray}
+
+            </Grid.Row>
+        </Grid>
     </Container>
+    </div>
         
   );
 };

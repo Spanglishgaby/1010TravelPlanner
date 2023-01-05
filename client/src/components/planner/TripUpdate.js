@@ -1,8 +1,8 @@
-import { useParams } from "react-router-dom"
-import { Button, Form, Container, Message } from 'semantic-ui-react'
+//import { useParams } from "react-router-dom"
+import { Button, Form, Container} from 'semantic-ui-react'
 import { useState, useEffect } from "react";
 //import Navbar from "./Navbar";
-import { Link } from "react-router-dom";
+
 
 
 const TripUpdate = ({handleUpdate, setTrips, trip, setWasClicked, index}) => {
@@ -31,7 +31,7 @@ const TripUpdate = ({handleUpdate, setTrips, trip, setWasClicked, index}) => {
         })
             .then((r) => r.json())
             .then(data => {
-                handleUpdate(index,data)
+                handleUpdate(data)
                 setWasClicked(false)
             })
     }

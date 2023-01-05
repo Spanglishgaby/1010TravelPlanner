@@ -1,10 +1,8 @@
-import { Button, Card,Container,Grid } from 'semantic-ui-react'
+import { Button, Card,Grid } from 'semantic-ui-react'
 import {useState} from 'react'
 import TripUpdate from './TripUpdate'
 
-
-
-const TripCard = ({trip,handleUpdate, handleDelete,index,trips, setTrips}) => {
+const TripCard = ({trip,handleUpdate, handleDelete,setTrips}) => {
 
   const [wasClicked, setWasClicked]= useState(false)
 
@@ -14,7 +12,7 @@ const TripCard = ({trip,handleUpdate, handleDelete,index,trips, setTrips}) => {
       e.preventDefault()
       let id = parseInt(e.target.value)
 
-      fetch(`trips/${id}`, {
+      fetch(`trips/${trip.id}`, {
           method: "DELETE",
       })
       .then(() => {
@@ -49,7 +47,7 @@ const TripCard = ({trip,handleUpdate, handleDelete,index,trips, setTrips}) => {
             </div>
             </Card.Content>
         </Card>
-        {wasClicked? <TripUpdate handleUpdate={handleUpdate} index={index} setWasClicked={setWasClicked} setTrips={setTrips} trip={trip}/> : null}
+        {wasClicked? <TripUpdate handleUpdate={handleUpdate}  setWasClicked={setWasClicked} setTrips={setTrips} trip={trip}/> : null}
     </Grid.Column>
   )
 }
