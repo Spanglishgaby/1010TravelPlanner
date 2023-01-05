@@ -5,21 +5,23 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import LuggageIcon from '@mui/icons-material/Luggage';
 import Box from '@mui/material/Box';
+import ReviewCard from './ReviewCard';
 
 function Question({reviews,setReviews}) {
-
+  
   useEffect(() => {
     getReview()
   }, [])
   
   const getReview = () => {
-      fetch('/review')
+      fetch('/reviews')
         .then((res) => res.json())
         .then((data) => 
         //console.log(data)
        setReviews(data)
         )
   }
+  let reviewArray = reviews.map((review) => <ReviewCard key={review.id} review={review} />)
   return (
     <Box
         component="section"
@@ -38,8 +40,11 @@ function Question({reviews,setReviews}) {
           alignItems: 'center',
         }}
       >
-        
-       
+        <Typography variant="h6" gutterBottom>
+        Users Review
+      </Typography>
+       {reviewArray}
+       <br></br>
     </Container>
     </Box>
   );
