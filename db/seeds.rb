@@ -19,7 +19,7 @@ User.destroy_all
 puts "create user"
 
 u1 = User.create(first_name:"Gabriela", last_name:"Arnott", email:"yuriko123@gmail.com", phone_number:5362625612, password:"helloworld")
-u2 = User.create(first_name:"Pablo", last_name:"Fuentes", email:"pablo123@gmail.com", phone_number:5333222261, password:"helloworld23")
+u2 = User.create(first_name:"Pablo", last_name:"Fuentes", email:"pablo123@gmail.com", phone_number:5333222261, password:"helloworld123")
 
 puts "user created"
 

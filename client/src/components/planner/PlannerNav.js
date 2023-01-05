@@ -90,7 +90,7 @@ const PlannerNav = ({user, trips,setTrips,reviews,setReviews}) => {
       }
     })
   };
-  console.log(user.first_name)
+  // console.log(user.first_name)
   return (
     <ThemeProvider theme={mdTheme}>
     <Box sx={{ display: "flex" }}>
@@ -158,7 +158,7 @@ const PlannerNav = ({user, trips,setTrips,reviews,setReviews}) => {
                 </ListItemIcon>
                 <ListItemText primary="Home" />
               </ListItemButton>
-              <ListItemButton href="/trips">
+              <ListItemButton href="/planner">
                 <ListItemIcon>
                   <PeopleIcon/>
                 </ListItemIcon>

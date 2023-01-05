@@ -3,6 +3,8 @@ class UsersController < ApplicationController
 rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 rescue_from ActiveRecord::RecordInvalid, with: :render_invalid_response
 
+wrap_parameters :user, include: [:email, :password]
+
 # skip_before_action 
     skip_before_action :authorized_user, only: [:create]
 
@@ -37,7 +39,7 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_invalid_response
     private
 
     def user_params
-        params.permit(:first_name, :last_name, :email, :password, :phone_number)
+        params.require(:user).permit(:email, :password) # :first_name, :last_name, :phone_number
     end
 
     def find_params_id
