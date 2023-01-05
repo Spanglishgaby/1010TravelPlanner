@@ -11,6 +11,8 @@ import TripCard from "./TripCard";
 import "../../components/css/index.css";
 import { Container, Grid} from 'semantic-ui-react'
 import ReviewCreate from "./ReviewCreate";
+import CreateTrip from "./CreateTrip";
+//import CreateActivities from "./CreateActivities";
 // import { TextField } from "@mui/material";
 
 
@@ -62,7 +64,7 @@ const CurrentTrips = ({
         .then((res) => res.json())
         .then((data) => 
         //console.log(data)
-       setTrips(data)
+        setTrips(data)
         )
   }
   console.log(tripArray)
@@ -77,6 +79,9 @@ const CurrentTrips = ({
 
             </Grid.Row>
         </Grid>
+      <CreateTrip 
+
+              setTrips={setTrips}/>
        <ReviewCreate user={user} reviews={reviews}
               setReviews={setReviews}/>
     </Container>

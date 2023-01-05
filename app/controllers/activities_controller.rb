@@ -1,6 +1,6 @@
 class ActivitiesController < ApplicationController
 
-rescue_from ActiveRecord::RecordNotFound, with: :ctivity_not_created
+rescue_from ActiveRecord::RecordNotFound, with: :Activity_not_created
 rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 
     def index 

@@ -25,6 +25,7 @@ const TripCard = ({trip,handleUpdate, handleDelete,setTrips}) => {
 
 
   return (
+
     <Grid.Column>
     <br></br>
         <Card>

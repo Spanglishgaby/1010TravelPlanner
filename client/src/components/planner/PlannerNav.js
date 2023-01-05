@@ -171,6 +171,12 @@ const PlannerNav = ({user, trips,setTrips,reviews,setReviews}) => {
                 </ListItemIcon>
                 <ListItemText primary="Create a New Trip" />
               </ListItemButton>
+              <ListItemButton href='/activities'>
+                <ListItemIcon>
+                  <TableViewIcon />
+                </ListItemIcon>
+                <ListItemText primary="Create a Activity" />
+              </ListItemButton>
             </List>
         </Drawer> 
         <Box

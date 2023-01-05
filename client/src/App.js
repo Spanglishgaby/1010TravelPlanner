@@ -15,10 +15,11 @@ import Faq from "./components/FaqView";
 import PlannerNav from "./components/planner/PlannerNav";
 
 import CreateTrip from "./components/planner/CreateTrip";
+import CreateActivities from "./components/planner/CreateActivities";
 
 function App() {
   const appliedTheme = createTheme(theme);
-  // const [activities, setActivities] = useState([])
+  const [activities, setActivities] = useState([])
   // useEffect(() => {
   //   fetch('/activities')
   //     .then(r => r.json())
@@ -149,22 +150,22 @@ function App() {
               setReviews={setReviews}
             />
           </Route>
-          <Route exact path="/create">
-          <CreateTrip
-              user={user}
-              updateUser={updateUser} 
-              trips={trips}
-              setTrips={setTrips}
-            />
-          </Route>
           <Route exact path="/activities">
+          <CreateActivities
+            activities ={activities}
+            setActivities={setActivities}
+            users={users}
+            trips={trips}
+            />
+          </Route>
+          {/* <Route exact path="/activities">
           <CreateTrip
               user={user}
               updateUser={updateUser} 
               trips={trips}
               setTrips={setTrips}
             />
-          </Route>
+          </Route> */}
           <Route exact path="/faq">
             <Faq />
           </Route>

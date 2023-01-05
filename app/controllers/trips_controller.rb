@@ -2,7 +2,7 @@ class TripsController < ApplicationController
 
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
     rescue_from ActiveRecord::RecordInvalid, with: :render_invalid_response
-    
+    # wrap_parameters :trip, include: [:title ,:description,:date, :total_budget]
         def index
             render json: Trip.all, status: :ok
         end
@@ -26,6 +26,7 @@ class TripsController < ApplicationController
         def destroy
             destroy_trip = find_params_id
             destroy_trip.destroy
+       
             head :no_content
         end
     
@@ -47,6 +48,6 @@ class TripsController < ApplicationController
         end
     
         def trip_params
-            params.permit(:title, :description, :date, :total_budget)
+            params.require(:trip).permit(:title, :description, :date, :total_budget)
         end
     end

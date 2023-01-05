@@ -5,8 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import Rating from '@mui/material/Rating';
 
-
-const ReviewCard = ({review}) => {
+export const ActivityCard = ({activity}) => {
     <Box
     component="span"
     sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
@@ -17,9 +16,11 @@ const ReviewCard = ({review}) => {
     <Card sx={{ minWidth: 275, height:100}}>
       <CardContent>
         <Typography variant="h5" component="div">
-          {review.review}
+          Description: {activity.description}
         </Typography>
-       <Rating name="read-only" value={review.review_stars} readOnly />
+        <Typography variant="h5" component="div">
+         Price: {activity.price}
+        </Typography>
       </CardContent>
       <br></br>
     </Card>
@@ -28,4 +29,4 @@ const ReviewCard = ({review}) => {
   )
 }
 
-export default ReviewCard
+

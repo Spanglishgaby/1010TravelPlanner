@@ -3,7 +3,7 @@ import {useState} from 'react'
 import { Button, Form, Container, Message } from 'semantic-ui-react'
 import { Link } from "react-router-dom";
 
-const CreateTrip = ({trips, setTrips}) => {
+const CreateTrip = ( {setTrips}) => {
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const [date, setDate] = useState('')
@@ -27,7 +27,7 @@ const CreateTrip = ({trips, setTrips}) => {
           })
           .then((r) => r.json())
           .then((data) => {
-          setTrips((currentTrips)=>[data, ...currentTrips])
+          setTrips((currentTrips)=>[...currentTrips,data])
           })
           //alert(`${orders.id}`)
     } 

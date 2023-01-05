@@ -3,9 +3,8 @@ class UsersController < ApplicationController
 rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 rescue_from ActiveRecord::RecordInvalid, with: :render_invalid_response
 
-wrap_parameters :user, include: [:email, :password, :first_name, :last_name, :phone_number]
-
-# skip_before_action 
+ skip_before_action 
+wrap_parameters :user, include: [:first_name, :last_name, :email, :password, :phone_number]
     skip_before_action :authorized_user, only: [:create]
 
     def index
@@ -21,7 +20,6 @@ wrap_parameters :user, include: [:email, :password, :first_name, :last_name, :ph
 
     def create
         create_user = User.create!(user_params)
-        session[:user_id] = create_user.id 
         render json: create_user, status: :created
     end
 
@@ -40,7 +38,7 @@ wrap_parameters :user, include: [:email, :password, :first_name, :last_name, :ph
     private
 
     def user_params
-        params.require(:user).permit(:email, :password, :first_name, :last_name, :phone_number) # :first_name, :last_name, :phone_number
+        params.permit(:first_name, :last_name, :email, :password, :phone_number)
     end
 
     def find_params_id
