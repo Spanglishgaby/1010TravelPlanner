@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import {useHistory} from 'react-router-dom'
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -19,6 +20,7 @@ const SignUp = ({setUsers}) => {
     const [phone_number,setPhone] =useState('')
     const [email,setEmail] =useState('')
     const [password,setPassword] =useState('')
+    const history = useHistory()
 
     const newUser ={
         first_name: first_name,
@@ -42,6 +44,7 @@ const SignUp = ({setUsers}) => {
         })
         .then(response => response.json())
         .then(data => setUsers((currentUsers)=>[data,...currentUsers]))
+        history.push('/signin')
       };
 
     //   POST /password-reset HTTP/1.1
