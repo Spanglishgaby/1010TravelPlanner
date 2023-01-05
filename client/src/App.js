@@ -43,7 +43,6 @@ function App() {
 
   const updateUser = (user) => setUser(user);
 
- 
   useEffect(() => {
     fetch("/users")
       .then((r) => r.json())

@@ -18,25 +18,24 @@ const theme = createTheme();
 
 const SignIn = ({updateUser}) => {
   const [formData, setFormData] = useState ({
-    name:'',
     email:'',
     password:''
   }) //need form
   const [errors, setErrors] = useState([])
   const history = useHistory()
-  const {email, password} = formData
+  // const {email, password} = formData
 
   const handleSubmit = (event) => {
         event.preventDefault();
-        const user = {
-          email,
-          password
-        }
+        // const user = {
+        //   email,
+        //   password
+        // }
         // Logs in users 
         fetch('/signin', {
           method: 'POST',
           headers:{'Content-Type': 'application/json'},
-          body:JSON.stringify(user)
+          body:JSON.stringify(formData),
         })
         .then(res => {
           if(res.ok){
@@ -99,7 +98,7 @@ const SignIn = ({updateUser}) => {
               id="email"
               label="Email Address"
               name="email"
-              value={email}
+              value={formData.email}
               onChange={handleChange}
               autoComplete="email"
               autoFocus
@@ -109,7 +108,7 @@ const SignIn = ({updateUser}) => {
               required
               fullWidth
               name="password"
-              value={password}
+              value={formData.password}
               onChange={handleChange}
               label="Password"
               type="password"

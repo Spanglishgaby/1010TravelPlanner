@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2023_01_03_194117) do
     t.string "last_name"
     t.string "email"
     t.integer "phone_number"
-    t.string "password_digest" # line 1 allows database to store hasesh 
+    t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

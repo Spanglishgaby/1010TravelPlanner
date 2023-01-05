@@ -21,7 +21,8 @@ function Question({reviews,setReviews}) {
        setReviews(data)
         )
   }
-  let reviewArray = reviews.map((review) => <ReviewCard key={review.id} review={review} />)
+  
+  // let reviewArray = reviews.map((review) => <ReviewCard key={review.id} review={review} />)
   return (
     <Box
         component="section"
@@ -43,7 +44,7 @@ function Question({reviews,setReviews}) {
         <Typography variant="h6" gutterBottom>
         Users Review
       </Typography>
-       {reviewArray}
+       {/* {reviewArray} */}
        <br></br>
     </Container>
     </Box>
