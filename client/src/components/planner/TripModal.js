@@ -11,7 +11,7 @@ const TripModal = ({
   handleCloseModel,
   trip,
   createTrips,
-  UpdatingTrips,
+  updatingTrips,
 }) => {
   const [title, setTitle] = React.useState(trip ? trip.title : '')
   const [description, setDescription] = React.useState(trip ? trip.description : '')
@@ -30,7 +30,7 @@ const TripModal = ({
 
     if (trip) {
       const updatedtrip = { ...trip, title: title, description: description, date:date, total_budget:total_budget }
-      UpdatingTrips(updatedtrip)
+      updatingTrips(updatedtrip)
     } else {
       const newtrip = { title: title, description: description, date: date, total_budget: total_budget }
       createTrips(newtrip)

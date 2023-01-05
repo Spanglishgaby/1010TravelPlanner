@@ -4,7 +4,7 @@ rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 rescue_from ActiveRecord::RecordInvalid, with: :render_invalid_response
 
 # skip_before_action 
-skip_before_action :authorized_user, only: [:create]
+    skip_before_action :authorized_user, only: [:create]
 
     def index
         render json: User.all, status: :ok
@@ -12,8 +12,9 @@ skip_before_action :authorized_user, only: [:create]
 
     def show
         # find_user = find_params_id
-        find_user = User.find(session[:user_id])
-        render json: find_user, status: :ok
+        # find_user = User.find(session[:user_id])
+        # render json: find_user, status: :ok
+        render json: current_user, status: :ok
     end
 
     def create
@@ -21,17 +22,17 @@ skip_before_action :authorized_user, only: [:create]
         render json: create_user, status: :created
     end
 
-    def update
-        update_user = find_params_id
-        update_user.update(user_params)
-        render json: update_user, status: :ok
-    end
+    # def update
+    #     update_user = find_params_id
+    #     update_user.update(user_params)
+    #     render json: update_user, status: :ok
+    # end
 
-    def destroy
-        destroy_user = find_params_id
-        destroy_user.destroy
-        head :no_content
-    end
+    # def destroy
+    #     destroy_user = find_params_id
+    #     destroy_user.destroy
+    #     head :no_content
+    # end
 
     private
 

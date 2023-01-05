@@ -46,9 +46,18 @@ const TripCard = ({trip,updatingTrips,deleteTrips}) => {
           </Tooltip>
         </CardActionArea>
         <CardContent>
-          <Link to={`/trips/${trip.id}`} className='link'>
+          <Link to={`/planner/${trip.id}`} className='link'>
             <Typography variant='h6' component='h6'>
-              {trip.title}
+              Title: {trip.title}
+            </Typography>
+            <Typography variant='h6' component='h6'>
+             Description: {trip.description}
+            </Typography>
+            <Typography variant='h6' component='h6'>
+             Date: {trip.Date}
+            </Typography>
+            <Typography variant='h6' component='h6'>
+              Budget: {trip.total_budget}
             </Typography>
           </Link>
         </CardContent>
@@ -66,7 +75,7 @@ const TripCard = ({trip,updatingTrips,deleteTrips}) => {
       />
 
       <TripModal
-        trip={null}
+        trip={trip}
         openModal={openModal}
         handleCloseModel={handleCloseModel}
         updatingTrips={updatingTrips}
