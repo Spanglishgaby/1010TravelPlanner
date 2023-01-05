@@ -11,8 +11,8 @@ import Home from "./components/home/Home";
 
 import Faq from "./components/FaqView";
 
-import TripDashboard from "./components/planner/TripDashboard";
-import Planner from "./components/planner/Planner";
+//import Planner from "./components/planner/Planner";
+import PlannerNav from "./components/planner/PlannerNav";
 
 function App() {
   const appliedTheme = createTheme(theme);
@@ -48,18 +48,18 @@ function App() {
   }, []);
 
   //get Trips
-  useEffect(() => {
-    getTrips()
-  }, [])
+  // useEffect(() => {
+  //   getTrips()
+  // }, [])
   
-  const getTrips = () => {
-      fetch('/trips')
-        .then((res) => res.json())
-        .then((data) => 
-        // console.log(data)
-        setTrips(data)
-        )
-  }
+  // const getTrips = () => {
+  //     fetch('/trips')
+  //       .then((res) => res.json())
+  //       .then((data) => 
+  //       // console.log(data)
+  //       setTrips(data)
+  //       )
+  // }
   console.log(trips)
   const addTrips = (trip) => setTrips(current => [...current,trip])
 
@@ -151,25 +151,14 @@ function App() {
             <SignUp users={users} setUsers={setUsers} />
           </Route>
           <Route exact path="/planner">
-            <Planner
+            <PlannerNav
               user={user}
               updateUser={updateUser} 
               trips={trips}
-              addTrips={addTrips}
-              // patchTrips={patchTrips}
-              // createTrips={createTrips}
-              // updatingTrips={updatingTrips}
-              // deleteTrips={deleteTrips}
+              setTrips={setTrips}
+          
             />
           </Route>
-          <Route exact path="/planner/:id">
-            <TripDashboard
-              trips={trips}
-              // updatingTrips={updatingTrips}
-              // deleteTrips={deleteTrips}
-            />
-          </Route>
-
           <Route exact path="/faq">
             <Faq />
           </Route>

@@ -1,86 +1,56 @@
-import * as React from 'react'
-import DropdownMenu from './DropdownMenu'
-import TripModal from './TripModal'
-import { Link } from 'react-router-dom'
-
-import {Card,CardContent,CardActionArea,Typography,IconButton,Grid,Tooltip} from '@mui/material'
-import MoreVertIcon from '@mui/icons-material/MoreVert'
+import { Button, Card,Container,Grid } from 'semantic-ui-react'
+import {useState} from 'react'
+import TripUpdate from './TripUpdate'
 
 
 
-const TripCard = ({trip,updatingTrips,deleteTrips}) => {
+const TripCard = ({trip,handleUpdate, handleDelete,index,trips, setTrips}) => {
 
-  //menu to see more options
-  const [moreAnchorEl, setMoreAnchorEl] = React.useState(null)
-  const isMenuOpen = Boolean(moreAnchorEl)
+  const [wasClicked, setWasClicked]= useState(false)
 
-  const handleMenuOpen = (event) => {
-    setMoreAnchorEl(event.currentTarget)
+  function handleclickDelete(e){
+      // console.log(e.target.value)
+      // console.log("delete")
+      e.preventDefault()
+      let id = parseInt(e.target.value)
+
+      fetch(`trips/${id}`, {
+          method: "DELETE",
+      })
+      .then(() => {
+         handleDelete(id)
+      })
+  }
+  function handleclickUpdate(){
+      setWasClicked(current => !current)
   }
 
-  const handleMenuClose = () => {
-    setMoreAnchorEl(null)
-  }
-
-
-  //handle edit modal
-  const [openModal, setOpenModal] = React.useState(false)
-  const handleOpenModel = () => setOpenModal(true)
-  const handleCloseModel = () => setOpenModal(false)
 
   return (
-    <Grid item xs={12} sm={12} md={6} lg={4}>
-      <Card
-        className='b-radius trip-card'
-        style={{ background: '#F0DFC8' }}>
-        <CardActionArea className='card-actions'>
-          <Tooltip title='trip Options'>
-            <IconButton
-              style={{ color: '#444' }}
-              aria-label='show options'
-              aria-controls='trip-options'
-              aria-haspopup='true'
-              onClick={handleMenuOpen}>
-              <MoreVertIcon />
-            </IconButton>
-          </Tooltip>
-        </CardActionArea>
-        <CardContent>
-          <Link to={`/planner/${trip.id}`} className='link'>
-            <Typography variant='h6' component='h6'>
-              Title: {trip.title}
-            </Typography>
-            <Typography variant='h6' component='h6'>
-             Description: {trip.description}
-            </Typography>
-            <Typography variant='h6' component='h6'>
-             Date: {trip.Date}
-            </Typography>
-            <Typography variant='h6' component='h6'>
-              Budget: {trip.total_budget}
-            </Typography>
-          </Link>
-        </CardContent>
-      </Card>
-
-      {/* pop ups */}
-      <DropdownMenu
-        moreAnchorEl={moreAnchorEl}
-        isMenuOpen={isMenuOpen}
-        handleMenuClose={handleMenuClose}
-        handleOpenModel={handleOpenModel}
-        deleteTrips={deleteTrips}
-        component={trip}
-        componentType='trip'
-      />
-
-      <TripModal
-        trip={trip}
-        openModal={openModal}
-        handleCloseModel={handleCloseModel}
-        updatingTrips={updatingTrips}
-      />
-    </Grid>
+    <Grid.Column>
+    <br></br>
+        <Card>
+            <Card.Content>
+            <Card.Header>Title: {trip.title}</Card.Header>
+            <Card.Meta>
+            Description:{trip.description}
+            </Card.Meta>
+            </Card.Content>
+            <Card.Content extra>
+            <div className='ui two buttons'>
+                <Button value={trip.id} basic color='green'
+                onClick={handleclickUpdate}>
+                {wasClicked? "Hide Form" :"Edit"}
+                </Button>
+                <Button value={trip.id} basic color='red' 
+                onClick={handleclickDelete}>
+                Delete
+                </Button>
+            </div>
+            </Card.Content>
+        </Card>
+        {wasClicked? <TripUpdate handleUpdate={handleUpdate} index={index} setWasClicked={setWasClicked} setTrips={setTrips} trip={trip}/> : null}
+    </Grid.Column>
   )
 }
 

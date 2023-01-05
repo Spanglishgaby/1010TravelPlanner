@@ -3,15 +3,28 @@ import MuiDrawer from '@mui/material/Drawer';
 import MuiAppBar from '@mui/material/AppBar';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import { mainListItems, secondaryListItems } from './List';
+// import { mainListItems, secondaryListItems } from './List';
 import { styled  } from '@mui/material/styles';
-import { Typography, IconButton,Toolbar,Divider,List} from '@mui/material'
+import { Typography, IconButton,Toolbar,Divider,List,Box,Grid, Container,CssBaseline} from '@mui/material'
 import Avatar from '@mui/material/Avatar'
 import '../../components/css/index.css'
-import {useHistory} from 'react-router-dom'
+import {Switch, useHistory,Route, Link } from 'react-router-dom'
 import Button from '@mui/material/Button';
-
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import ListSubheader from '@mui/material/ListSubheader';
+import TableViewIcon from '@mui/icons-material/TableView';
+//import LocalAirportIcon from '@mui/icons-material/LocalAirport';
+import PeopleIcon from '@mui/icons-material/People';
+import HomeIcon from '@mui/icons-material/Home';
 import LogoutIcon from '@mui/icons-material/Logout';
+import CurrentTrips from './CurrentTrips';
+import {
+  createTheme,
+  ThemeProvider,
+} from "@mui/material/styles";
+const mdTheme = createTheme();
   // distance from the side bar
   const drawerWidth = 240;
   
@@ -59,7 +72,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
       },
     }),
   );
-const PlannerNav = ({user}) => {
+const PlannerNav = ({user, trips,setTrips}) => {
     // Open and close side bar
   const [open, setOpen] = useState(true);
   const toggleDrawer = () => {
@@ -80,7 +93,9 @@ const PlannerNav = ({user}) => {
   };
   console.log(user.first_name)
   return (
-    <>
+    <ThemeProvider theme={mdTheme}>
+    <Box sx={{ display: "flex" }}>
+      <CssBaseline />
     <AppBar position="absolute" open={open}>
             <Toolbar
                 sx={{
@@ -138,15 +153,62 @@ const PlannerNav = ({user}) => {
             </Toolbar>
             <Divider />
             <List component="nav">
-                {mainListItems}
-                {/* <button onClick={handleLogOut}>Log out </button> */}
-               
-                <Divider sx={{ my: 1 }} />
-                {secondaryListItems}
+              <ListItemButton href="/">
+                <ListItemIcon>
+                  <HomeIcon />
+                </ListItemIcon>
+                <ListItemText primary="Home" />
+              </ListItemButton>
+              <ListItemButton href="/trips">
+                <ListItemIcon>
+                  <PeopleIcon/>
+                </ListItemIcon>
+                <ListItemText primary="Current Trips" />
+              </ListItemButton>
+
+              <ListItemButton href='/newtrip'>
+                <ListItemIcon>
+                  <TableViewIcon />
+                </ListItemIcon>
+                <ListItemText primary="Create a New Trip" />
+              </ListItemButton>
             </List>
         </Drawer> 
-
-        </>
+        <Box
+              component="main"
+              sx={{
+                backgroundColor: "#F5EFE6",
+                flexGrow: 1,
+                height: "100vh",
+                overflow: "auto",
+              }}
+            >
+              <Toolbar />
+              <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+                <Grid container spacing={3}>
+                  <Box
+                    component="main"
+                    sx={{
+                      height: "100vh",
+                      width: { xs: "100%", sm: "100%" },
+                      ml: { sm: "10px" },
+                      overflow: "auto",
+                    }}
+                  >
+                  <Toolbar />
+                  <CurrentTrips user={user} trips={trips} setTrips={setTrips}/>
+                  {/* <Switch>
+                        <Route path="/newtrip" ></Route>
+                        <Route path="/trips" element={<CurrentTrips user={user} trips={trips}/>} ></Route> {/*element={<NewTab curr_user={user} />}*/}
+                        {/* <Route path="/archieves" element={<CompletedTabs user={user} />}></Route> */}
+                  {/* </Switch> */} 
+                  </Box>
+              </Grid>
+            </Container>
+          </Box>
+          </Box>
+    </ThemeProvider>
+    
   )
 }
 
