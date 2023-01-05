@@ -5,16 +5,21 @@ import TripCard from "./TripCard";
 //   Grid,
 //   Container,
 // } from "@mui/material";
-
+// import Box from '@mui/material/Box';
+// import Rating from '@mui/material/Rating';
+// import Typography from '@mui/material/Typography';
 import "../../components/css/index.css";
-import { Container, Grid } from 'semantic-ui-react'
-
+import { Container, Grid} from 'semantic-ui-react'
+import ReviewCreate from "./ReviewCreate";
+// import { TextField } from "@mui/material";
 
 
 const CurrentTrips = ({
   user,
   trips,
-  setTrips
+  setTrips,
+  reviews,
+  setReviews
 }) => {
 
   // const [filtered, setFiltered] = useState([])
@@ -72,6 +77,8 @@ const CurrentTrips = ({
 
             </Grid.Row>
         </Grid>
+       <ReviewCreate user={user} reviews={reviews}
+              setReviews={setReviews}/>
     </Container>
     </div>
         

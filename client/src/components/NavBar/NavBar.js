@@ -14,7 +14,7 @@ const NavBar = () => {
     <>
     <Nav>
         <NavBarContainer>
-            <NavLogo to='/'>1010Travels </NavLogo>
+            <NavLogo to='/'>1010.com </NavLogo>
             <MobileIcon>
               <FaBars/>
             </MobileIcon>

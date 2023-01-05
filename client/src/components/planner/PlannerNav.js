@@ -71,7 +71,7 @@ const mdTheme = createTheme();
       },
     }),
   );
-const PlannerNav = ({user, trips,setTrips}) => {
+const PlannerNav = ({user, trips,setTrips,reviews,setReviews}) => {
     // Open and close side bar
   const [open, setOpen] = useState(true);
   const toggleDrawer = () => {
@@ -175,12 +175,12 @@ const PlannerNav = ({user, trips,setTrips}) => {
         </Drawer> 
         <Box
               component="main"
-              sx={{
-                backgroundColor: "#F5EFE6",
-                flexGrow: 1,
-                height: "100vh",
-                overflow: "auto",
-              }}
+              // sx={{
+              //   backgroundColor: "#FEFE6",
+              //   flexGrow: 1,
+              //   height: "100vh",
+              //   overflow: "auto",
+              // }}
             >
               <Toolbar />
               <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
@@ -195,7 +195,8 @@ const PlannerNav = ({user, trips,setTrips}) => {
                     }}
                   >
                   <Toolbar />
-                  <CurrentTrips user={user} trips={trips} setTrips={setTrips}/>
+                  <CurrentTrips user={user} trips={trips} setTrips={setTrips} reviews={reviews}
+                  setReviews={setReviews}/>
                   {/* <Switch>
                         <Route path="/newtrip" ></Route>
                         <Route path="/trips" element={<CurrentTrips user={user} trips={trips}/>} ></Route> {/*element={<NewTab curr_user={user} />}*/}

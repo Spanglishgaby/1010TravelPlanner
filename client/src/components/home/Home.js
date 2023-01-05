@@ -6,14 +6,14 @@ import Question from "./Question"
 import HowitWork from "./HowitWork"
 
 
-function Home(){
+function Home({reviews,setReviews}){
     return (
       <>
       <NavBar/>
       <Header/>
       <HowitWork/>
       <Destination/>
-      <Question/>
+      <Question reviews={reviews} setReviews={setReviews}/>
       <Footer/>
     </>
     )

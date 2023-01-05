@@ -1,6 +1,8 @@
 import React from 'react'
 import {useState} from 'react'
-import { Button, Checkbox, Form } from 'semantic-ui-react'
+import { Button, Form, Container, Message } from 'semantic-ui-react'
+import { Link } from "react-router-dom";
+
 const CreateTrip = ({trips, setTrips}) => {
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
@@ -31,6 +33,16 @@ const CreateTrip = ({trips, setTrips}) => {
     } 
     
   return (
+
+    <Container>
+    <Message>
+        <Message.Header>Return to Current Trip</Message.Header>
+        {/* <p> Please register your information before continuing ...</p> */}
+        <Link to= '/planner'>
+        <Button color="blue" >Return</Button>
+        </Link>
+    </Message>
+   
   <Form>
     <Form.Field>
       <label>Title</label>
@@ -51,6 +63,7 @@ const CreateTrip = ({trips, setTrips}) => {
     
     <Button onClick={handleSubmit} type='submit'>Create Trip</Button>
   </Form>
+  </Container>
 )
 
 

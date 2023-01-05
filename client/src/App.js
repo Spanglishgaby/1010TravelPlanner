@@ -28,6 +28,7 @@ function App() {
   const [user, setUser] = useState(null); // set to null in case user comes back
   const [users, setUsers] = useState([]);
   const [trips, setTrips] = useState([]);
+  const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
     fetch("/authorized").then((res) => {
@@ -124,7 +125,9 @@ function App() {
       {/* {!user ? <SignIn error={"Please Login"} updateUser={updateUser}/> : // If user not logged in send to logging page else render all */}
         <Switch>
           <Route exact path="/">
-            <Home />
+            <Home 
+            reviews={reviews}
+            setReviews={setReviews}/>
           </Route>
           <Route exact path="/signin">
             <SignIn
@@ -142,9 +145,19 @@ function App() {
               updateUser={updateUser} 
               trips={trips}
               setTrips={setTrips}
+              reviews={reviews}
+              setReviews={setReviews}
             />
           </Route>
           <Route exact path="/create">
+          <CreateTrip
+              user={user}
+              updateUser={updateUser} 
+              trips={trips}
+              setTrips={setTrips}
+            />
+          </Route>
+          <Route exact path="/activities">
           <CreateTrip
               user={user}
               updateUser={updateUser} 
