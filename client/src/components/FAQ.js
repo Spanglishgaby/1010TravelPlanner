@@ -1,26 +1,22 @@
-import React from 'react'
+import React from "react";
 
-import NavBar from './NavBar/NavBar'
+import NavBar from "./NavBar/NavBar";
 
-function FAQ ({faq, index, toggleFAQ}) {
-	return (
-		<>
-		<NavBar/>
-	
-		<div
-			className={"faq " + (faq.open ? 'open' : '')}
-			key={index}
-			onClick={() => toggleFAQ(index)}
-		>
-			<div className="faq-question">
-				{faq.question}
-			</div>
-			<div className="faq-answer">
-				{faq.answer}
-			</div>
-		</div>
-		</>
-	)
+function FAQ({ faq, index, toggleFAQ }) {
+  return (
+    <>
+      <NavBar />
+
+      <div
+        className={"faq " + (faq.open ? "open" : "")}
+        key={index}
+        onClick={() => toggleFAQ(index)}
+      >
+        <div className="faq-question">{faq.question}</div>
+        <div className="faq-answer">{faq.answer}</div>
+      </div>
+    </>
+  );
 }
 
-export default FAQ
+export default FAQ;

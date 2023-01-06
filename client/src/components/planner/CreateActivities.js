@@ -1,19 +1,17 @@
 import React from "react";
-
 import { useState } from "react";
 import { Button, Form, Container, Message } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import { ActivityContainer } from "./ActivityContainer";
 
-const CreateActivities = ({ activities, setActivities, trips, users }) => {
+const CreateActivities = ({ activities, setActivities, trips, user }) => {
   const [trip_id, setTrip_id] = useState("");
-  const [user_id, setUser_id] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
 
   const newActivity = {
     trip_id: trip_id,
-    user_id: user_id,
+    user_id: user.id,
     description: description,
     price: price,
   };
@@ -29,7 +27,6 @@ const CreateActivities = ({ activities, setActivities, trips, users }) => {
       .then((data) => {
         setActivities((currentActivities) => [...currentActivities, data]);
       });
-    //alert(`${orders.id}`)
   }
   return (
     <Container>
@@ -55,20 +52,7 @@ const CreateActivities = ({ activities, setActivities, trips, users }) => {
             ))}
           </select>
         </Form.Field>
-        <Form.Field>
-          <h3 className="label">User:</h3>
-          <select
-            placeholder="Select a Name"
-            onChange={(e) => setUser_id(e.target.value)}
-          >
-            <option value="none">Select a User:</option>
-            {users.map((user) => (
-              <option key={user.id} value={user.id}>
-                {user.first_name}
-              </option>
-            ))}
-          </select>
-        </Form.Field>
+
         <Form.Field>
           <label>Description</label>
           <input

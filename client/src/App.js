@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
 import theme from "./theme";
-
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-
 import SignIn from "./components/user/SignIn";
 import SignUp from "./components/user/SignUp";
 import Home from "./components/home/Home";
-
 import Faq from "./components/FaqView";
 import PlannerNav from "./components/planner/PlannerNav";
 import CreateActivities from "./components/planner/CreateActivities";
@@ -24,14 +21,6 @@ function App() {
 
   const updateUser = (user) => setUser(user);
 
-
-  // useEffect(() => {
-  //   fetch('/trips')
-  //   .then((res) => res.json())
-  //   .then((data) => 
-  //     setTrips(data)
-  //   )}, [user])
-
   useEffect(() => {
     fetch("/trips").then((res) => {
       if (res.ok) {
@@ -42,8 +31,6 @@ function App() {
     });
   }, [user]);
 
-  
- 
   useEffect(() => {
     fetch("/authorized").then((res) => {
       if (res.ok) {
@@ -57,13 +44,12 @@ function App() {
   useEffect(() => {
     fetch("/users")
       .then((r) => r.json())
-      .then((usersData) => setUsers(usersData)); // setSunSign(signData))
+      .then((usersData) => setUsers(usersData));
   }, []);
 
   return (
     <ThemeProvider theme={appliedTheme}>
       <CssBaseline />
-      {/* {!user ? <SignIn error={"Please Login"} updateUser={updateUser}/> : // If user not logged in send to logging page else render all */}
       <Switch>
         <Route exact path="/">
           <Home reviews={reviews} setReviews={setReviews} />
@@ -88,7 +74,7 @@ function App() {
           <CreateActivities
             activities={activities}
             setActivities={setActivities}
-            users={users}
+            user={user}
             trips={trips}
           />
         </Route>

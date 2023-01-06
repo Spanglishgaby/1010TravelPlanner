@@ -6,15 +6,13 @@ import TextField from "@mui/material/TextField";
 import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-// import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Footer from "../home/Footer";
-import {useHistory} from 'react-router-dom'
+import { useHistory } from "react-router-dom";
 
 const theme = createTheme();
-
 
 const SignUp = ({ setUsers }) => {
   const [first_name, setFirstName] = useState("");
@@ -23,9 +21,9 @@ const SignUp = ({ setUsers }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const [errors, setErrors] = useState([])
+  const [errors, setErrors] = useState([]);
 
-  const history = useHistory()
+  const history = useHistory();
 
   const newUser = {
     first_name: first_name,
@@ -41,20 +39,17 @@ const SignUp = ({ setUsers }) => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newUser),
-    })
-    .then(res => {
-      if(res.ok){
-        res.json()
-        .then(user => {
-          setUsers(user)
-          history.push('/') //`/planner/${user.id}`
-        })
-      }else {
-        res.json().then(json => setErrors(json.errors)) //(Object.entries(json.errors)))
+    }).then((res) => {
+      if (res.ok) {
+        res.json().then((user) => {
+          setUsers(user);
+          history.push("/");
+        });
+      } else {
+        res.json().then((json) => setErrors(json.errors));
       }
-    })
+    });
   }
- 
 
   return (
     <ThemeProvider theme={theme}>
@@ -153,7 +148,7 @@ const SignUp = ({ setUsers }) => {
           </Box>
         </Box>
       </Container>
-      {errors?errors.map(e => <div>{e}</div>):null} 
+      {errors ? errors.map((e) => <div>{e}</div>) : null}
       <Footer />
     </ThemeProvider>
   );

@@ -12,9 +12,6 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_invalid_response
     end
 
     def show
-        # find_user = find_params_id
-        # find_user = User.find(session[:user_id])
-        # render json: find_user, status: :ok
         render json: current_user, status: :ok
     end
 
@@ -22,18 +19,6 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_invalid_response
         create_user = User.create!(user_params)
         render json: create_user, status: :created
     end
-
-    # def update
-    #     update_user = find_params_id
-    #     update_user.update(user_params)
-    #     render json: update_user, status: :ok
-    # end
-
-    # def destroy
-    #     destroy_user = find_params_id
-    #     destroy_user.destroy
-    #     head :no_content
-    # end
 
     private
 
