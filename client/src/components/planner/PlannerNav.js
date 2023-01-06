@@ -71,7 +71,7 @@ const mdTheme = createTheme();
       },
     }),
   );
-const PlannerNav = ({user, trips,setTrips,reviews,setReviews}) => {
+const PlannerNav = ({user, trips,setTrips,reviews,setReviews, updateUser}) => {
     // Open and close side bar
   const [open, setOpen] = useState(true);
   const toggleDrawer = () => {
@@ -85,12 +85,15 @@ const PlannerNav = ({user, trips,setTrips,reviews,setReviews}) => {
     })
     .then(res => {
       if (res.ok) {
+        updateUser(false)
         history.push("/")
         //redirect user to home
       }
     })
   };
-  // console.log(user.first_name)
+
+  console.log(user)
+
   return (
     <ThemeProvider theme={mdTheme}>
     <Box sx={{ display: "flex" }}>
@@ -123,8 +126,7 @@ const PlannerNav = ({user, trips,setTrips,reviews,setReviews}) => {
                 Travel Planner
                 </Typography>
               
-                
-                <Avatar sx={{ bgcolor: '#f77062', margin: 2 }}> {user.first_name[0]}</Avatar>
+                {/* <Avatar sx={{ backgroundColor: '#f77062', margin: 2 }}> {user.first_name[0]}</Avatar> */}
                 <Typography
                     component='h6'
                     variant='h6'
@@ -158,12 +160,12 @@ const PlannerNav = ({user, trips,setTrips,reviews,setReviews}) => {
                 </ListItemIcon>
                 <ListItemText primary="Home" />
               </ListItemButton>
-              <ListItemButton href="/planner">
+              {/* <ListItemButton href="/planner">
                 <ListItemIcon>
                   <PeopleIcon/>
                 </ListItemIcon>
                 <ListItemText primary="Current Trips" />
-              </ListItemButton>
+              </ListItemButton> */}
 
               <ListItemButton href='/create'>
                 <ListItemIcon>
@@ -203,11 +205,6 @@ const PlannerNav = ({user, trips,setTrips,reviews,setReviews}) => {
                   <Toolbar />
                   <CurrentTrips user={user} trips={trips} setTrips={setTrips} reviews={reviews}
                   setReviews={setReviews}/>
-                  {/* <Switch>
-                        <Route path="/newtrip" ></Route>
-                        <Route path="/trips" element={<CurrentTrips user={user} trips={trips}/>} ></Route> {/*element={<NewTab curr_user={user} />}*/}
-                        {/* <Route path="/archieves" element={<CompletedTabs user={user} />}></Route> */}
-                  {/* </Switch> */} 
                   </Box>
               </Grid>
             </Container>

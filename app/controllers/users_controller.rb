@@ -4,7 +4,7 @@ rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 rescue_from ActiveRecord::RecordInvalid, with: :render_invalid_response
 
 #  skip_before_action 
-wrap_parameters :user, include: [:first_name, :last_name, :email, :password, :phone_number]
+    wrap_parameters :user, include: [:first_name, :last_name, :email, :password, :phone_number]
     skip_before_action :authorized_user, only: [:create]
 
     def index

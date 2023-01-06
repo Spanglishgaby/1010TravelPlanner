@@ -13,6 +13,7 @@ rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
     end
 
     def create 
+        byebug
         create_activity = Activity.create!(activity_params)
         render json: create_activity, status: :created
     end

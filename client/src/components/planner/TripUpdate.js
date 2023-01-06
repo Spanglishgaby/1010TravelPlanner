@@ -1,17 +1,13 @@
-//import { useParams } from "react-router-dom"
+
 import { Button, Form, Container} from 'semantic-ui-react'
-import { useState, useEffect } from "react";
-//import Navbar from "./Navbar";
-
-
+import { useState } from "react";
 
 const TripUpdate = ({handleUpdate, setTrips, trip, setWasClicked, index}) => {
     const [title, setTitle] = useState(trip.title)
     const [description, setDescription] = useState(trip.description)
     const [date, setDate] = useState(trip.date)
     const [total_budget, setTotal_budget] = useState(trip.total_budget)
-    const [id, setId] = useState(trip.id)
-
+    // const [id, setId] = useState(trip.id)
 
     const updateTrip = {
         title: title || "",
@@ -22,7 +18,7 @@ const TripUpdate = ({handleUpdate, setTrips, trip, setWasClicked, index}) => {
     }
     function handleSubmit(e) {
         e.preventDefault();
-        fetch(`trips/${id}`, {
+        fetch(`trips/${trip.id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",

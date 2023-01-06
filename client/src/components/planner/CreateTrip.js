@@ -16,7 +16,6 @@ const CreateTrip = ( {setTrips}) => {
         date: date,
         total_budget: total_budget,
       }
-//  console.log(newOrders)
 
     function handleSubmit (e){
         e.preventDefault()
@@ -27,7 +26,7 @@ const CreateTrip = ( {setTrips}) => {
           })
           .then((r) => r.json())
           .then((data) => {
-          setTrips((currentTrips)=>[...currentTrips,data])
+          setTrips((currentTrips)=>[...currentTrips, data])
           })
           //alert(`${orders.id}`)
     } 

@@ -15,7 +15,7 @@ const CreateActivities = ({activities,setActivities, trips, users}) => {
 
     const newActivity = {
         trip_id: trip_id,
-        user_id: user_id,
+        // user_id: user_id,
         description: description,
         price: price,
       }

@@ -1,11 +1,8 @@
 import { useEffect } from 'react';
-// import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import LuggageIcon from '@mui/icons-material/Luggage';
 import Box from '@mui/material/Box';
-import ReviewCard from './ReviewCard';
+
 
 function Question({reviews,setReviews}) {
   
@@ -17,8 +14,7 @@ function Question({reviews,setReviews}) {
       fetch('/reviews')
         .then((res) => res.json())
         .then((data) => 
-        //console.log(data)
-       setReviews(data)
+          setReviews(data)
         )
   }
   
@@ -27,8 +23,8 @@ function Question({reviews,setReviews}) {
     <Box
         component="section"
         sx={{ display: 'flex', 
-        bgcolor: 'white', 
-        overflow: 'hidden' 
+          backgroundColor: 'white', 
+          overflow: 'hidden' 
         }}
     >
       <Container
