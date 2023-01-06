@@ -3,7 +3,7 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import ReviewCard from "./ReviewCard";
-
+import Grid from "@mui/material/Grid";
 function Question({ reviews, setReviews }) {
   useEffect(() => {
     getReview();
@@ -21,7 +21,7 @@ function Question({ reviews, setReviews }) {
   return (
     <Box
       component="section"
-      sx={{ display: "flex", backgroundColor: "white", overflow: "hidden" }}
+      sx={{ display: "flex", backgroundColor: "#F8EDE3", overflow: "hidden" }}
     >
       <Container
         sx={{
@@ -36,7 +36,12 @@ function Question({ reviews, setReviews }) {
         <Typography variant="h6" gutterBottom>
           Users Review
         </Typography>
+        
+        <Grid container spacing={1}>
+        <br></br>
         {reviewArray}
+        <br></br>
+        </Grid>
         <br></br>
       </Container>
     </Box>

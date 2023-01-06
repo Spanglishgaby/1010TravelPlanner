@@ -108,6 +108,12 @@
      transition: 0.3s;
      background-color: #aaca9f;
    }
+   .cardReview{
+    padding: 5px;
+     max-width: 600px;
+     min-height: 100PX;
+     margin: 0 auto;
+   }
    .tripContainer{
     padding: 10px;
      margin: 0 auto;
