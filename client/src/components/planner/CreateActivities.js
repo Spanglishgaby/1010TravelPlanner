@@ -29,15 +29,17 @@ const CreateActivities = ({ activities, setActivities, trips, user }) => {
       });
   }
   return (
-    <Container>
-      <Message>
+    <div className="forms">
+    <Container >
+      <Message className="message">
         <Message.Header>Return to Current Trip</Message.Header>
         <Link to="/planner">
           <Button color="blue">Return</Button>
         </Link>
       </Message>
-
-      <Form>
+      </Container>
+      <br></br><br></br><br></br>
+      <Form className="createActivity">
         <Form.Field>
           <h3 className="label">Trip:</h3>
           <select
@@ -52,7 +54,6 @@ const CreateActivities = ({ activities, setActivities, trips, user }) => {
             ))}
           </select>
         </Form.Field>
-
         <Form.Field>
           <label>Description</label>
           <input
@@ -75,7 +76,8 @@ const CreateActivities = ({ activities, setActivities, trips, user }) => {
         setActivities={setActivities}
         activities={activities}
       />
-    </Container>
+    
+    </div>
   );
 };
 

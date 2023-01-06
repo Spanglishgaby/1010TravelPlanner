@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import FAQ from "./FAQ";
+import NavBar from "./NavBar/NavBar";
 
-const NavBar = () => {
+const FaqView = () => {
   const [faqs, setfaqs] = useState([
     {
       question: "How do I sign up?",
@@ -36,6 +37,7 @@ const NavBar = () => {
 
   return (
     <div className="App">
+      <NavBar />
       <div className="faqs">
         {faqs.map((faq, i) => (
           <FAQ faq={faq} index={i} toggleFAQ={toggleFAQ} />
@@ -45,4 +47,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default FaqView;

@@ -22,7 +22,7 @@ const TripCard = ({ trip, handleUpdate, handleDelete, setTrips }) => {
   return (
     <Grid.Column>
       <br></br>
-      <Card>
+      <Card className="cardTrip">
         <Card.Content>
           <Card.Header>Title: {trip.title}</Card.Header>
           <Card.Meta>Description:{trip.description}</Card.Meta>

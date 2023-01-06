@@ -23,6 +23,7 @@ const ReviewCreate = ({ setReviews, user }) => {
   }
 
   return (
+    <div className="reviewContainer">
     <Form>
       <Form.Group widths="equal">
         <Form.Input
@@ -46,6 +47,7 @@ const ReviewCreate = ({ setReviews, user }) => {
       </Form.Group>
       <Button onClick={handleSubmit}>Create Review</Button>
     </Form>
+    </div>
   );
 };
 

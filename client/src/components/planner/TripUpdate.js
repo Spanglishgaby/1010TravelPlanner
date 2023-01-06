@@ -29,7 +29,7 @@ const TripUpdate = ({ handleUpdate, setTrips, trip, setWasClicked, index }) => {
       });
   }
   return (
-    <Container className="formBackground">
+    <Container className="cardTrip2">
       <br></br>
       <Form onSubmit={handleSubmit}>
         <Form.Field required>

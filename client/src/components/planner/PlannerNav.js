@@ -3,7 +3,8 @@ import MuiDrawer from "@mui/material/Drawer";
 import MuiAppBar from "@mui/material/AppBar";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-
+import AddIcon from '@mui/icons-material/Add';
+import FlightIcon from '@mui/icons-material/Flight';
 import { styled } from "@mui/material/styles";
 import {
   Typography,
@@ -12,9 +13,8 @@ import {
   Divider,
   List,
   Box,
-  Grid,
   Container,
-  CssBaseline,
+  
 } from "@mui/material";
 
 import "../../components/css/index.css";
@@ -23,7 +23,6 @@ import Button from "@mui/material/Button";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import TableViewIcon from "@mui/icons-material/TableView";
 import HomeIcon from "@mui/icons-material/Home";
 import LogoutIcon from "@mui/icons-material/Logout";
 import CurrentTrips from "./CurrentTrips";
@@ -105,8 +104,8 @@ const PlannerNav = ({
   return (
     <ThemeProvider theme={mdTheme}>
       <Box sx={{ display: "flex" }}>
-        <CssBaseline />
-        <AppBar position="absolute" open={open}>
+        {/* <CssBaseline /> */}
+        <AppBar position="absolute" open={open} >
           <Toolbar
             sx={{
               pr: "24px", // keep right padding when drawer closed
@@ -173,31 +172,30 @@ const PlannerNav = ({
               </ListItemIcon>
               <ListItemText primary="Home" />
             </ListItemButton>
-            <ListItemButton href="/create">
+            <ListItemButton href="/planner">
               <ListItemIcon>
-                <TableViewIcon />
+                <FlightIcon />
               </ListItemIcon>
-              <ListItemText primary="Create a New Trip" />
+              <ListItemText primary="Current Trips" />
             </ListItemButton>
             <ListItemButton href="/activities">
               <ListItemIcon>
-                <TableViewIcon />
+                <AddIcon  />
               </ListItemIcon>
               <ListItemText primary="Create a Activity" />
             </ListItemButton>
           </List>
         </Drawer>
-        <Box component="main">
+        <Box component="main" sx={{width:  "100%"}}>
           <Toolbar />
-          <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-            <Grid container spacing={3}>
+          <Container sx={{
+                  height: "100vh",
+                  width:  "100%" }}>
               <Box
                 component="main"
                 sx={{
                   height: "100vh",
-                  width: { xs: "100%", sm: "100%" },
-                  ml: { sm: "10px" },
-                  overflow: "auto",
+                  width:  "100%"
                 }}
               >
                 <Toolbar />
@@ -209,7 +207,7 @@ const PlannerNav = ({
                   setReviews={setReviews}
                 />
               </Box>
-            </Grid>
+            
           </Container>
         </Box>
       </Box>

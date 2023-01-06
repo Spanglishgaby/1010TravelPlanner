@@ -1,22 +1,22 @@
 import { createTheme } from "@mui/material/styles";
-import { orange, teal, brown, grey } from "@mui/material/colors";
+import {  grey } from "@mui/material/colors";
 export const theme = createTheme({
-  palette: {
-    mode: "light",
-    primary: {
-      main: teal[900],
-    },
-    secondary: {
-      main: orange[400],
-    },
-    text: {
-      primary: brown[900],
-    },
-    background: {
-      default: "#f8f4ef",
-      paper: "#f8f4ef",
-    },
-  },
+  // palette: {
+  //   mode: "light",
+  //   primary: {
+  //     main: teal[900],
+  //   },
+  //   secondary: {
+  //     main: orange[400],
+  //   },
+  //   text: {
+  //     primary: brown[900],
+  //   },
+  //   background: {
+  //     default: "#f8f4ef",
+  //     paper: "#f8f4ef",
+  //   },
+  // },
   typography: {
     fontFamily: '"DM Sans", sans-serif',
     h1: {

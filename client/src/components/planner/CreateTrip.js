@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Button, Form, Container, Message } from "semantic-ui-react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 const CreateTrip = ({ setTrips }) => {
   const [title, setTitle] = useState("");
@@ -30,13 +30,10 @@ const CreateTrip = ({ setTrips }) => {
   }
 
   return (
+    <div className="formsCreateTrip">
     <Container>
       <Message>
-        <Message.Header>Return to Current Trip</Message.Header>
-
-        <Link to="/planner">
-          <Button color="blue">Return</Button>
-        </Link>
+        <Message.Header>Create a Trip</Message.Header>
       </Message>
 
       <Form>
@@ -71,6 +68,7 @@ const CreateTrip = ({ setTrips }) => {
         </Button>
       </Form>
     </Container>
+    </div>
   );
 };
 

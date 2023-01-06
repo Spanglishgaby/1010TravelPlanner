@@ -17,7 +17,7 @@ export const ActivityCard = ({ activity }) => {
             Description: {activity.description}
           </Typography>
           <Typography variant="h5" component="div">
-            Price: {activity.price}
+            Price: $ {activity.price}
           </Typography>
         </CardContent>
         <br></br>

@@ -1,11 +1,11 @@
 import React from "react";
 
-import NavBar from "./NavBar/NavBar";
+// import NavBar from "./NavBar/NavBar";
 
 function FAQ({ faq, index, toggleFAQ }) {
   return (
     <>
-      <NavBar />
+      
 
       <div
         className={"faq " + (faq.open ? "open" : "")}

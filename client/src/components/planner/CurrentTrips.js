@@ -29,10 +29,10 @@ const CurrentTrips = ({ user, trips, setTrips, reviews, setReviews }) => {
   ));
 
   return (
-    <div>
+    <div className="tripContainer">
       <Container style={{ marginTop: "50px" }}>
         <h1>Last Trips :</h1>
-        <Grid columns={3} divided>
+        <Grid columns={3} className="grid" >
           <Grid.Row>{tripArray}</Grid.Row>
         </Grid>
         <CreateTrip setTrips={setTrips} />

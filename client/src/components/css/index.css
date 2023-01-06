@@ -68,3 +68,77 @@
 .btn-login.MuiButton-root{
     min-width: 250px;
 } */
+.forms{
+    padding: 10px;
+     max-width: 800px;
+     min-height: 600PX;
+     margin: 0 auto;
+     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+     transition: 0.3s;
+     margin-top: 20px;
+     margin-bottom: 50px;
+     background-color: #feecd7;
+   }
+.formsCreateTrip{
+    padding: 10px;
+     max-width: 800px;
+     min-height: 200PX;
+     margin: 0 auto;
+     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+     transition: 0.3s;
+     margin-top: 20px;
+     margin-bottom: 50px;
+     background-color: #d0ecff;
+   }
+   .cardTrip{
+    padding: 10px;
+     max-width: 800px;
+     min-height: 100PX;
+     margin: 0 auto;
+     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+     transition: 0.3s;
+     background-color: #f3ffef;
+   }
+   .cardTrip2{
+    padding: 10px;
+     max-width: 800px;
+     min-height: 100PX;
+     margin: 0 auto;
+     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+     transition: 0.3s;
+     background-color: #aaca9f;
+   }
+   .tripContainer{
+    padding: 10px;
+     margin: 0 auto;
+     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+     background-color: #dadada;
+   }
+   
+   .createTrip {
+    background-color: rgb(144, 6, 6);
+   }
+   .reviewContainer{
+    padding: 10px;
+     margin: 0 auto;
+     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+     transition: 0.3s;
+     background-color: #ffefa7;
+   }
+   .createActivity{
+    padding: 10px;
+     margin: 0 auto;
+     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+     transition: 0.3s;
+     background-color: #e0f7ff;
+   }
+   .message{
+    padding: 10px;
+     margin: 0 auto;
+     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+     transition: 0.3s;
+     background-color: #ffc486;
+   }
+   /* .grid{
+
+   } */
