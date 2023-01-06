@@ -6,7 +6,7 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 // import { mainListItems, secondaryListItems } from './List';
 import { styled  } from '@mui/material/styles';
 import { Typography, IconButton,Toolbar,Divider,List,Box,Grid, Container,CssBaseline} from '@mui/material'
-import Avatar from '@mui/material/Avatar'
+// import Avatar from '@mui/material/Avatar'
 import '../../components/css/index.css'
 import {useHistory } from 'react-router-dom'
 import Button from '@mui/material/Button';
@@ -15,7 +15,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import TableViewIcon from '@mui/icons-material/TableView';
 //import LocalAirportIcon from '@mui/icons-material/LocalAirport';
-import PeopleIcon from '@mui/icons-material/People';
+// import PeopleIcon from '@mui/icons-material/People';
 import HomeIcon from '@mui/icons-material/Home';
 import LogoutIcon from '@mui/icons-material/Logout';
 import CurrentTrips from './CurrentTrips';
@@ -71,7 +71,7 @@ const mdTheme = createTheme();
       },
     }),
   );
-const PlannerNav = ({user, trips,setTrips,reviews,setReviews, updateUser}) => {
+const PlannerNav = ({user, trips, setTrips, reviews, setReviews, updateUser}) => {
     // Open and close side bar
   const [open, setOpen] = useState(true);
   const toggleDrawer = () => {
@@ -91,8 +91,6 @@ const PlannerNav = ({user, trips,setTrips,reviews,setReviews, updateUser}) => {
       }
     })
   };
-
-  console.log(user)
 
   return (
     <ThemeProvider theme={mdTheme}>

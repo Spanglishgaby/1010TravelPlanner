@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import TripCard from "./TripCard";
 import "../../components/css/index.css";
 import { Container, Grid} from 'semantic-ui-react'

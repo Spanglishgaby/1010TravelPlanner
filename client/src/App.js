@@ -25,12 +25,23 @@ function App() {
   const updateUser = (user) => setUser(user);
 
 
+  // useEffect(() => {
+  //   fetch('/trips')
+  //   .then((res) => res.json())
+  //   .then((data) => 
+  //     setTrips(data)
+  //   )}, [user])
+
   useEffect(() => {
-    fetch('/trips')
-    .then((res) => res.json())
-    .then((data) => 
-      setTrips(data)
-    )}, [user])
+    fetch("/trips").then((res) => {
+      if (res.ok) {
+        res.json().then((user) => {
+          setTrips(user);
+        });
+      }
+    });
+  }, [user]);
+
   
  
   useEffect(() => {

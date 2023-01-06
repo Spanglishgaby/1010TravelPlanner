@@ -35,25 +35,6 @@ const SignUp = ({ setUsers }) => {
     password: password,
   };
 
-  // const handleSubmit = (event) => {
-  //   // Add error message Validations
-  //   event.preventDefault();
-  //   fetch("/users", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       error: "Password must be at least 10 characters long",
-  //     },
-  //     body: JSON.stringify(newUser),
-  //   })
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       console.log(data)
-  //       // setUsers((currentUsers) => [...currentUsers, data])
-  //     });
-     
-  // };
-
   function handleSubmit(e) {
     e.preventDefault();
     fetch("/users", {
@@ -66,14 +47,12 @@ const SignUp = ({ setUsers }) => {
         res.json()
         .then(user => {
           setUsers(user)
-          history.push('/planner') //`/planner/${user.id}`
+          history.push('/') //`/planner/${user.id}`
         })
       }else {
         res.json().then(json => setErrors(json.errors)) //(Object.entries(json.errors)))
       }
     })
-
-    //alert(`${orders.id}`)
   }
  
 
@@ -174,6 +153,7 @@ const SignUp = ({ setUsers }) => {
           </Box>
         </Box>
       </Container>
+      {errors?errors.map(e => <div>{e}</div>):null} 
       <Footer />
     </ThemeProvider>
   );
