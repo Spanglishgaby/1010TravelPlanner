@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import ReviewCard from './ReviewCard'
 
 
 function Question({reviews,setReviews}) {
@@ -18,7 +19,7 @@ function Question({reviews,setReviews}) {
         )
   }
   
-  // let reviewArray = reviews.map((review) => <ReviewCard key={review.id} review={review} />)
+  let reviewArray = reviews.map((review) => <ReviewCard key={review.id} review={review} />)
   return (
     <Box
         component="section"
@@ -40,7 +41,7 @@ function Question({reviews,setReviews}) {
         <Typography variant="h6" gutterBottom>
         Users Review
       </Typography>
-       {/* {reviewArray} */}
+       {reviewArray}
        <br></br>
     </Container>
     </Box>

@@ -28,21 +28,39 @@ const SignUp = ({ setUsers }) => {
     password: password,
   };
 
-  const handleSubmit = (event) => {
-    // Add error message Validations
-    event.preventDefault();
-    console.log(newUser);
+  // const handleSubmit = (event) => {
+  //   // Add error message Validations
+  //   event.preventDefault();
+  //   fetch("/users", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       error: "Password must be at least 10 characters long",
+  //     },
+  //     body: JSON.stringify(newUser),
+  //   })
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       console.log(data)
+  //       // setUsers((currentUsers) => [...currentUsers, data])
+  //     });
+     
+  // };
+
+  function handleSubmit(e) {
+    e.preventDefault();
     fetch("/users", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        error: "Password must be at least 10 characters long ",
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newUser),
     })
-      .then((response) => response.json())
-      .then((data) => setUsers((currentUsers) => [data, ...currentUsers]));
-  };
+      .then((r) => r.json())
+      .then((data) => {
+        setUsers((currentUsers) => [...currentUsers, data]);
+      });
+    //alert(`${orders.id}`)
+  }
+ 
 
   return (
     <ThemeProvider theme={theme}>

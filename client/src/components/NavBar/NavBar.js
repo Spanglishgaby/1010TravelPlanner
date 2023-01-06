@@ -28,9 +28,9 @@ const NavBar = () => {
               <NavItem>
                 <NavLinks to='/faq'>FAQ</NavLinks>
               </NavItem>
-              <NavItem>
+              {/* <NavItem>
                 <NavLinks to='/planner'>Planner</NavLinks>
-              </NavItem>
+              </NavItem> */}
             </NavMenu>
             <NavBtn>
             <NavBtnLinks to='/signup'>Sign Up</NavBtnLinks>
