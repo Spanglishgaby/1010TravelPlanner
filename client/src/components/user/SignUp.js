@@ -11,7 +11,10 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Footer from "../home/Footer";
+import {useHistory} from 'react-router-dom'
+
 const theme = createTheme();
+
 
 const SignUp = ({ setUsers }) => {
   const [first_name, setFirstName] = useState("");
@@ -19,6 +22,10 @@ const SignUp = ({ setUsers }) => {
   const [phone_number, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const [errors, setErrors] = useState([])
+
+  const history = useHistory()
 
   const newUser = {
     first_name: first_name,
@@ -54,10 +61,18 @@ const SignUp = ({ setUsers }) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newUser),
     })
-      .then((r) => r.json())
-      .then((data) => {
-        setUsers((currentUsers) => [...currentUsers, data]);
-      });
+    .then(res => {
+      if(res.ok){
+        res.json()
+        .then(user => {
+          setUsers(user)
+          history.push('/planner') //`/planner/${user.id}`
+        })
+      }else {
+        res.json().then(json => setErrors(json.errors)) //(Object.entries(json.errors)))
+      }
+    })
+
     //alert(`${orders.id}`)
   }
  

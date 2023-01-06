@@ -38,7 +38,7 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_invalid_response
     private
 
     def user_params
-        params.permit(:first_name, :last_name, :email, :password, :phone_number)
+        params.require(:user).permit(:first_name, :last_name, :email, :password, :phone_number)
     end
 
     def find_params_id
